@@ -20,4 +20,9 @@ div#nick img{ /*For every open inside nick that is also a img*/
 div#nick button{
 	background: white;
 	color: #006400;
+	transition: background 1s;
+}
+
+div#nick button:hover{
+	background: purple;
 }
