@@ -8,3 +8,9 @@ function nickTree(){
 	var tree = selectorNick.value;
 	alert(tree); // create a popup with string parameters
 }
+
+var treeList = document.getElementsByTagName("li");
+
+for (var i = 0; i < treeList.length; i++) {
+	console.log(treeList[i]);
+}
