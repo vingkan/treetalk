@@ -13,8 +13,7 @@ div#vinesh{
 }
 
 div#vinesh img{
-	width: 200px;
-	border: 3px solid white;
+	height: 200px;
 }
 
 div#vinesh button{
@@ -25,4 +24,10 @@ div#vinesh button{
 
 div#vinesh button:hover{
 	background: orange;
+}
+
+div.treeHeight{
+	width: 200px;
+	background: white;
+	color: #113635;
 }
