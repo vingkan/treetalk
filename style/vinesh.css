@@ -1,5 +1,8 @@
 h1#heading-vinesh{
 	font-size: 40px;
+	line-height: 50px;
+	background: black;
+	text-transform: uppercase;
 }
 
 div#vinesh{
