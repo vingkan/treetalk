@@ -11,3 +11,15 @@ h1, h2, h3{
 p{
 	font-family: 'Lato', sans-serif;
 }
+
+li{
+	background: white;
+	color: #006400;
+	padding: 10px;
+	height: 10px;
+	width: 600px;
+	border-radius: 15px;
+	text-align: center;
+	text-transform: uppercase;
+	margin: 5px;
+}
