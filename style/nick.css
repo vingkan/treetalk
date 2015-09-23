@@ -5,4 +5,5 @@ div#nick{
 div#nick img{ /*For every open inside nick that is also a img*/
 	width: 200px;
 	border: 3px dashed black;
+	
 }
