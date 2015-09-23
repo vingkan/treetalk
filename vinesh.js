@@ -8,3 +8,9 @@ function vineshTree(){
 	var tree = selectorVinesh.value;
 	alert(tree);
 }
+
+var liList = document.getElementsByTagName('li');
+
+for(var l = 0; l < liList.length; l++){
+	console.log(liList[l]);
+}
