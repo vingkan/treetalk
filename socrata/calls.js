@@ -48,3 +48,22 @@ function handleTreeData(data){
 	//8 references "tree_species"
 	console.log(data[25][8]);
 }
+
+/*
+* Loop Over JSON Tags: http://stackoverflow.com/questions/10352840/loop-through-json-object
+*/
+function convertQuery(){
+	var query = {
+		"$limit": 5,
+		'$offset': 0
+	}
+	for(var tag in query){
+		if(query.hasOwnProperty(tag)){
+			console.log(tag + query[tag]);
+		}
+	}
+}
+
+function getTreesWithLimit(){
+
+}
