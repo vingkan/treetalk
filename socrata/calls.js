@@ -53,6 +53,7 @@ function handleTreeData(data){
 function createRequestURL(baseUrl, query){
 	var url = baseUrl;
 	var queries = [];
+		queries.push('$$app_token' + '=' + appToken);
 	for(var tag in query){
 		if(query.hasOwnProperty(tag)){
 			queries.push(tag + '=' + query[tag]);
@@ -64,7 +65,6 @@ function createRequestURL(baseUrl, query){
 
 function getTreesWithLimit(){
 	var query = {
-		'$$app_token': appToken,
 		'$limit': 5,
 		'$offset': 3
 	}
