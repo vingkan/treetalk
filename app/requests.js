@@ -3,8 +3,9 @@ var appToken = "Le00VXF0GK0d8D1tTn2v6Vkpl";
 
 var incomingTrees = [];
 
-function getTrees(query){
+function getTrees(query, limit){
 	query['$$app_token'] = appToken;
+	query['$limit'] = limit;
 	$.ajax({
 		url: treeURL,
 		method: "GET",
@@ -30,6 +31,5 @@ function handleTreeData(data){
 }
 
 getTrees({
-	"$limit": 5,
 	"tree_species": "Acer rubrum"
-});
+}, 3);
