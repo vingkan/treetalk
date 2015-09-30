@@ -50,6 +50,7 @@ function handleTreeData(data){
 }
 
 /*
+* Use $.param(data) to convert simple tag queries to URLs: http://stackoverflow.com/questions/3308846/serialize-object-to-query-string-in-javascript-jquery
 * Loop Over JSON Tags: http://stackoverflow.com/questions/10352840/loop-through-json-object
 */
 function convertQuery(){
@@ -57,9 +58,11 @@ function convertQuery(){
 		"$limit": 5,
 		'$offset': 0
 	}
+	var queries = [];
 	for(var tag in query){
 		if(query.hasOwnProperty(tag)){
-			console.log(tag + query[tag]);
+			console.log(tag + '=' + query[tag]);
+			queries.push(tag + '=' + query[tag]);
 		}
 	}
 }
