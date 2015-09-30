@@ -12,7 +12,11 @@
 	</head>
 	<body>
 
-		<p>Hello World</p>
+		<h1>Find Trees Close to Me: </h1>
+
+		<input type="number" id="nearbyTreeLimit" value="0" onchange="findNearbyTrees();">
+
+		<ul id="nearbyTrees"></ul>
 		
 		<script type="text/javascript" src="geolocation.js"></script>
 		<script type="text/javascript" src="tree.js"></script>
@@ -21,6 +25,10 @@
 
 		<script type="text/javascript">
 
+			function findNearbyTrees(){
+				var limit = document.getElementById('nearbyTreeLimit').value;
+				//getTrees('nearbyTrees1',{})
+			}
 
 
 		</script>
