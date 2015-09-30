@@ -49,24 +49,31 @@ function handleTreeData(data){
 	console.log(data[25][8]);
 }
 
-/*
-* Use $.param(data) to convert simple tag queries to URLs: http://stackoverflow.com/questions/3308846/serialize-object-to-query-string-in-javascript-jquery
-* Loop Over JSON Tags: http://stackoverflow.com/questions/10352840/loop-through-json-object
-*/
-function convertQuery(){
-	var query = {
-		"$limit": 5,
-		'$offset': 0
-	}
+//Links and Documentation at End: A
+function createRequestURL(baseUrl, query){
+	var url = baseUrl;
 	var queries = [];
 	for(var tag in query){
 		if(query.hasOwnProperty(tag)){
-			console.log(tag + '=' + query[tag]);
 			queries.push(tag + '=' + query[tag]);
 		}
 	}
+	url += '?' + queries.join('&');
+	return url;
 }
 
 function getTreesWithLimit(){
-
+	var query = {
+		'$limit': 5,
+		'$offset': 0
+	}
+	var request = createRequestURL(treesAPIUrl, query);
+	console.log(request);
 }
+
+//ENDNOTES
+
+/* Section A
+* Use $.param(data) to convert simple tag queries to URLs: http://stackoverflow.com/questions/3308846/serialize-object-to-query-string-in-javascript-jquery
+* Loop Over JSON Tags: http://stackoverflow.com/questions/10352840/loop-through-json-object
+*/
