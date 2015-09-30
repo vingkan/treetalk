@@ -30,14 +30,21 @@ function getTrees(){
 		method: "GET",
 		dataType: "json",
 		data: {
+			"$limit": 5,
 			"tree_species": "Acer rubrum",
 			"$$app_token": appToken
 		},
 		success: function(data, status, jqxhr){
 			console.log("Received: ", data);
+			handleTreeData(data.data);
 		},
 		error: function(jqxhr, status, error){
 			console.log("Critical Error. RIP.");
 		}
 	});
+}
+
+function handleTreeData(data){
+	//8 references "tree_species"
+	console.log(data[25][8]);
 }
