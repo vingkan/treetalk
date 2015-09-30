@@ -35,7 +35,7 @@ function handleTreeData(id, data){
 	console.log(storage);
 }
 
-function getTreesCount(id, tag, value){
+function getCount(id, tag, value){
 	var query = {
 		'$$app_token': appToken,
 		'$select': 'count(' + tag + ')',
@@ -71,5 +71,8 @@ getTrees('a1', {
 	"tree_species": "Acer rubrum"
 }, 3);
 
+getTrees('b1', {
+	'$where': 'within_circle(location, 40.15, -88.25, 1000)'
+}, 10);
 
-getTreesCount('c1', 'tree_species', 'Acer rubrum');
+getCount('c1', 'tree_species', 'Acer rubrum');
