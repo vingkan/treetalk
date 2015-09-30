@@ -1,0 +1,80 @@
+/*--------------------------------------------*/
+/*---> COLORS <-------------------------------*/
+/*--------------------------------------------*/
+
+@focusTone: #61B329;
+@lightTone: @focusTone + #222222;
+@darkTone: @focusTone - #222222;
+
+/*--------------------------------------------*/
+/*---> LAYOUT <-------------------------------*/
+/*--------------------------------------------*/
+
+.Center(@textAlign: center){
+	margin: auto 0;
+	text-align: @textAlign;
+}
+
+html{
+	background:  @focusTone;
+}
+
+/*--------------------------------------------*/
+/*---> TEXT <---------------------------------*/
+/*--------------------------------------------*/
+
+// Import and Assign Google Fonts
+@BubblegumSans: 'Bubblegum Sans', cursive;
+@Cabin: 'Cabin', sans-serif;
+
+.BodyFont(@color: white, @size: 1.0em){
+	font-family: @Cabin;
+	color: @color;
+	font-size: @size;
+	line-height: @size + 0.25em;
+	padding: 0.25em 0;
+}
+
+h1, h2, h3, p{
+	.BodyFont();
+	margin: 0.5em 0;
+}
+
+h1, h2, h3, h4{
+	font-family: @BubblegumSans;
+	font-weight: bold;
+	color: @darkTone;
+}
+
+h1{
+	font-size: 1.75em;
+}
+
+h2{
+	font-size: 1.5em;
+}
+
+p{
+	color: @darkTone;
+}
+
+/*--------------------------------------------*/
+/*---> FORMS <--------------------------------*/
+/*--------------------------------------------*/
+
+.FormCleanse(){
+	outline: none;
+	border: none;
+	border-radius: 0;
+}
+
+.PlaceHolder(@color: white) {
+	input::-webkit-input-placeholder { color: @color; }
+	input:-moz-placeholder { color: @color; }
+	textarea::-webkit-input-placeholder { color: @color; }
+	textarea:-moz-placeholder { color: @color; }
+}
+
+/*--------------------------------------------*/
+/*---> ANIMATIONS <---------------------------*/
+/*--------------------------------------------*/
