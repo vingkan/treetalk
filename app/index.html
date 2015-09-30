@@ -36,9 +36,10 @@
 				}
 				var callId = 'nearby_trees';
 				var limit = document.getElementById('nearbyTreesLimit').value;
+				var radius = 1000000000; //in meters
 				getTrees(callId, {
 					'$where': 'within_circle(location, ' + userLocation.latitude
-						+ ', ' + userLocation.longitude + ', 1000000000)'
+						+ ', ' + userLocation.longitude + ', ' + radius + ')'
 				}, limit, listNearbyTrees);
 			}
 
