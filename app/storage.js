@@ -19,6 +19,7 @@ Storage.prototype.get = function(id){
 	}
 	else{
 		console.log("Failure: Could not get data with that id.");
+		return response;
 	}
 }
 

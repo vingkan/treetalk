@@ -14,9 +14,9 @@
 
 		<h1>Find Trees Close to Me: </h1>
 
-		<input type="number" id="nearbyTreeLimit" value="0" onchange="findNearbyTrees();">
+		<input type="number" id="nearbyTreesLimit" value="0" onchange="findNearbyTrees();">
 
-		<ul id="nearbyTrees"></ul>
+		<ul id="nearbyTreesList"></ul>
 		
 		<script type="text/javascript" src="geolocation.js"></script>
 		<script type="text/javascript" src="tree.js"></script>
@@ -26,10 +26,21 @@
 		<script type="text/javascript">
 
 			function findNearbyTrees(){
-				var limit = document.getElementById('nearbyTreeLimit').value;
-				//getTrees('nearbyTrees1',{})
+				function listNearbyTrees(){
+					var results = storage.get(callId);
+					var output = document.getElementById('nearbyTreesList');
+					output.innerHTML = "";
+					for(var r = 0; r < results.length; r++){
+						output.innerHTML += '<li>' + results[r] + '</li>';
+					}
+				}
+				var callId = 'nearby_trees';
+				var limit = document.getElementById('nearbyTreesLimit').value;
+				getTrees(callId, {
+					'$where': 'within_circle(location, ' + userLocation.latitude
+						+ ', ' + userLocation.longitude + ', 1000000000)'
+				}, limit, listNearbyTrees);
 			}
-
 
 		</script>
 		
