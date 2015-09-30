@@ -22,7 +22,7 @@ function sampleAjax(){
 	});
 }
 
-var treesAPIUrl = "https://data.illinois.gov/api/views/dzge-uybj/rows.json";
+var treesAPIUrl = "https://data.illinois.gov/resource/dzge-uybj.json";
 
 function getTrees(){
 	$.ajax({
@@ -65,7 +65,7 @@ function createRequestURL(baseUrl, query){
 function getTreesWithLimit(){
 	var query = {
 		'$limit': 5,
-		'$offset': 0
+		'$offset': 3
 	}
 	var request = createRequestURL(treesAPIUrl, query);
 	console.log(request);
