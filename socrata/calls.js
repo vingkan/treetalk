@@ -64,6 +64,7 @@ function createRequestURL(baseUrl, query){
 
 function getTreesWithLimit(){
 	var query = {
+		'$$app_token': appToken,
 		'$limit': 5,
 		'$offset': 3
 	}
