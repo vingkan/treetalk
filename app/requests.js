@@ -29,8 +29,8 @@ function handleTreeData(id, data){
 		newTrees.push(new Tree(data[d]));
 	}
 	incomingTrees.push({
-		'data-id': id,
-		'trees': newTrees
+		'id': id,
+		'data': newTrees
 	});
 	console.log('Finished parsing tree data.');
 	console.log(incomingTrees);
