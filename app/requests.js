@@ -22,7 +22,6 @@ function getTrees(id, query, limit){
 }
 
 function handleTreeData(id, data){
-	console.log('Begin parsing tree data...');
 	var newTrees = []
 	for(var d = 0; d < data.length; d++){
 		newTrees.push(new Tree(data[d]));
@@ -31,8 +30,8 @@ function handleTreeData(id, data){
 		'id': id,
 		'data': newTrees
 	});
-	console.log('...Finished parsing tree data.');
-	console.log(storage);
+	//console.log('...Finished parsing tree data.');
+	//console.log(storage);
 }
 
 function getCount(id, tag, value){
@@ -47,7 +46,7 @@ function getCount(id, tag, value){
 		dataType: "json",
 		data: query,
 		success: function(data, status, jqxhr){
-			console.log("Received count data...");
+			//console.log("Received count data...");
 			var count = data[0]['count_' + tag];
 			handleCountData(id, count);
 		},
@@ -58,13 +57,12 @@ function getCount(id, tag, value){
 }
 
 function handleCountData(id, data){
-	console.log('Begin parsing count data...');
 	storage.add({
 		'id': id,
 		'data': data
 	});
-	console.log('...Finished parsing count data.');
-	console.log(storage);
+	//console.log('...Finished parsing count data.');
+	//console.log(storage);
 }
 
 getTrees('a1', {
