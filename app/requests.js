@@ -12,7 +12,7 @@ function getTrees(query, limit){
 		dataType: "json",
 		data: query,
 		success: function(data, status, jqxhr){
-			console.log("Received: ", data);
+			console.log("Received tree data.", data);
 			handleTreeData(data);
 		},
 		error: function(jqxhr, status, error){
@@ -22,12 +22,13 @@ function getTrees(query, limit){
 }
 
 function handleTreeData(data){
-	console.log('Parse: ', data);
+	console.log('Begin parsing tree data.', data);
 	incomingTrees = [];
 	for(var d = 0; d < data.length; d++){
 		incomingTrees.push(new Tree(data[d]));
 	}
 	console.log('Finished parsing tree data.');
+	console.log(incomingTrees);
 }
 
 getTrees({
