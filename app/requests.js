@@ -17,16 +17,13 @@ function createRequestURL(baseUrl, query){
 	return url;
 }
 
-function getTrees(){
+function getTrees(query){
+	query['$$app_token'] = appToken;
 	$.ajax({
-		url: treesAPIUrl,
+		url: treeURL,
 		method: "GET",
 		dataType: "json",
-		data: {
-			"$limit": 5,
-			"tree_species": "Acer rubrum",
-			"$$app_token": appToken
-		},
+		data: query,
 		success: function(data, status, jqxhr){
 			console.log("Received: ", data);
 			handleTreeData(data.data);
@@ -38,25 +35,10 @@ function getTrees(){
 }
 
 function handleTreeData(data){
-	//8 references "tree_species"
-	console.log(data[25][8]);
+	console.log(data);
 }
 
-//Links and Documentation at End: A
-
-
-function getTreesWithLimit(){
-	var query = {
-		'$limit': 5,
-		'$offset': 3
-	}
-	var request = createRequestURL(treesAPIUrl, query);
-	console.log(request);
-}
-
-//ENDNOTES
-
-/* Section A
-* Use $.param(data) to convert simple tag queries to URLs: http://stackoverflow.com/questions/3308846/serialize-object-to-query-string-in-javascript-jquery
-* Loop Over JSON Tags: http://stackoverflow.com/questions/10352840/loop-through-json-object
-*/
+getTrees({
+	"$limit": 5,
+	"tree_species": "Acer rubrum"
+});
