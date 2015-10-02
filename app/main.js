@@ -3,6 +3,11 @@ var appToken = "Le00VXF0GK0d8D1tTn2v6Vkpl";
 
 var storage = new Storage();
 
+var userLocation = {
+	latitude: 0,
+	longitude: 0
+};
+
 navigator.geolocation.getCurrentPosition(updateCoords);
 
 getTrees('a1', {
