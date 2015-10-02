@@ -7,5 +7,3 @@ function initGoogleMap(){
 	var mapDiv = document.getElementById('googleMap');
 	var googleMap = new google.maps.Map(mapDiv, mapProperties);
 }
-
-initGoogleMap();
