@@ -25,6 +25,10 @@ Board.prototype.update = function(){
 	for(var r = 0; r < this.roads.length; r++){
 		this.roads[r].update();
 	}
+}
+
+Board.prototype.print = function(){
+	this.update();
 	var gameSpaceDiv = document.getElementById(this.id);
 	gameSpaceDiv.innerHTML = this.toHTML();
 }

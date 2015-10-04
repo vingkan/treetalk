@@ -19,8 +19,8 @@ function Road(name, vertical, cars){
 }
 
 Road.prototype.update = function(){
-	console.log("updated road: " + this.name);
-	var increment = 10;
+	//console.log("updated road: " + this.name);
+	var increment = 1;
 	for(var c = 0; c < this.cars.length; c++){
 		this.cars[c].update(increment);
 	}

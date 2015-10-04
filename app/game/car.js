@@ -22,8 +22,9 @@ function Car(name, color, position){
 }
 
 Car.prototype.update = function(increment){
-	console.log("updated car: " + this.name);
+	//console.log("updated car: " + this.name);
 	this.position += increment;
+	//document.getElementById("'" + this.id + "'").style.marginLeft = this.position;
 }
 
 Car.prototype.toHTML = function(){
