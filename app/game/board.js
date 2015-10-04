@@ -4,8 +4,8 @@ Board.prototype.trees = [] //Array of Trees
 
 function Board(){
 	this.gameSpace = "gameSpace";
-	this.roads = this.roads;
-	this.trees = this.trees;
+	this.roads = [];
+	this.trees = [];
 }
 
 Board.prototype.toHTML = function(){
@@ -16,4 +16,11 @@ Board.prototype.toHTML = function(){
 	}
 	html += '</div>';
 	return html;
+}
+
+Board.prototype.addRoads = function(roadsArray){
+	console.log("a")
+	for(var r = 0; r < roadsArray.length; r++){
+		this.roads.push(roadsArray[r]);
+	}
 }

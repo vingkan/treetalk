@@ -34,12 +34,18 @@
 
 
 
-		
+		<!-- APP SCRIPTS -->
 		<script type="text/javascript" src="geolocation.js"></script>
 		<script type="text/javascript" src="tree.js"></script>
 		<script type="text/javascript" src="storage.js"></script>
 		<script type="text/javascript" src="requests.js"></script>
 		<script type="text/javascript" src="map.js"></script>
+
+		<!-- GAME SCRIPTS -->
+		<script type="text/javascript" src="game/board.js"></script>
+		<script type="text/javascript" src="game/road.js"></script>
+
+		<!-- MAIN SCRIPT -->
 		<script type="text/javascript" src="main.js"></script>
 
 		<script type="text/javascript">
@@ -60,6 +66,13 @@
 			}
 
 			$(window).resize(updateGameWindow).resize();
+
+			var board = new Board();
+			board.addRoads([
+				new Road('35th', false),
+				new Road('State', true)
+			]);
+
 
 		</script>
 		
