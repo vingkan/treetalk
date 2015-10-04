@@ -93,4 +93,21 @@ div.cloud{
 	background-image: url('cloud.png');
 	background-size: @roadWidth auto;
 	background-repeat: no-repeat;
+	.PulsingCloud();
+}
+
+@-webkit-keyframes pulseCloud{
+	from{
+		opacity: 1.0;
+	}
+	50%{
+		opacity: 0.5;
+	}
+	to{
+		opacity: 1.0;
+	}
+}
+
+.PulsingCloud(@speed: 5s){
+	animation: moveCloud @speed linear infinite;
 }
