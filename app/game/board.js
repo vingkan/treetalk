@@ -1,9 +1,13 @@
 Board.prototype.gameSpace = "" //String: parent div for board
+Board.prototype.size = 400; //Pixels as Double
+Board.prototype.roadSize = 40; //Pixels as Double
 Board.prototype.roads = [] //Array of Roads
 Board.prototype.trees = [] //Array of Trees
 
 function Board(gameSpaceID){
 	this.gameSpace = gameSpaceID || "gameSpace";
+	this.size = 400;
+	this.roadSize = 40;
 	this.roads = [];
 	this.trees = [];
 }

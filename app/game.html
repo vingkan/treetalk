@@ -78,8 +78,10 @@
 			}
 
 			function updateGameWindow(){
-				var limitSize = getWindowDimensionLimit().toString() + "px";
-				updateBoardSize(limitSize);
+				var limitSize = getWindowDimensionLimit();
+				board.size = limitSize;
+				board.roadSize = limitSize / 10;
+				updateBoardSize(limitSize.toString() + "px");
 			}
 
 			$(window).resize(updateGameWindow).resize();
