@@ -6,6 +6,10 @@
 @BubblegumSans: 'Bubblegum Sans', cursive;
 @Cabin: 'Cabin', sans-serif;
 
+/*--------------------------------------------*/
+/*---> GAME ELEMENTS <------------------------*/
+/*--------------------------------------------*/
+
 @boardSize: 450px;
 @roadWidth: @boardSize / 12;
 @crossingSpeed: 10s;
@@ -112,4 +116,49 @@ div.cloud{
 
 .PulsingCloud(@speed: 5s){
 	animation: pulseCloud @speed linear infinite;
+}
+
+/*--------------------------------------------*/
+/*---> USER ELEMENTS <------------------------*/
+/*--------------------------------------------*/
+
+div.statsWindow{
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 0;
+	background: @charcoal;
+	color: white;
+	overflow: hidden;
+	border-right: 2vw solid @lightTone;
+
+	&:hover{
+		width: 20%;
+	}
+
+	transition: all 0.5s ease;
+
+}
+
+ul#nearbyTreesWindow{
+
+	li{
+
+		background: @focusTone;
+		font-family: @Cabin;
+		padding: 1vw;
+
+		img{
+			height: 10vh;
+		}
+
+		div.treeInfo{
+			float: left;
+			background: orange;
+		}
+
+	}
+
 }
