@@ -19,10 +19,11 @@ div.road{
 	height: @roadWidth;
 	line-height: @roadWidth;
 	overflow: hidden;
-	background: @charcoal;
+	background: rgba(26, 26, 26, 0.5);
 	color: white;
 	font-family: @Cabin;
 	text-align: center;
+	z-index: 5;
 }
 
 div.vertical{
@@ -38,7 +39,8 @@ div.car{
 	height: @roadWidth * 0.75;
 	line-height: @roadWidth * 0.75;
 	text-align: center;
-	.MovingCar();
+	.MovingCar(10s);
+	z-index: 10;
 }
 
 @-webkit-keyframes moveCar{
