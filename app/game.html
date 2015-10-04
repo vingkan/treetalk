@@ -57,28 +57,28 @@
 			var board = new Board('test');
 			board.addRoads([
 				new Road('31st', false, [
-					new Car('Car', 'orange')
+					new Car('Car', (board.size * 0.2))
 				]),
 				new Road('33rd', false, [
-					new Car('Car', 'red')
+					new Car('Car', (board.size * 0.5))
 				]),
 				new Road('35th', false, [
-					new Car('Car', 'yellow')
+					new Car('Car', (board.size * 0.3))
 				]),
 				new Road('37th', false, [
-					new Car('Car', 'pink')
+					new Car('Car', (board.size * 0.1))
 				]),
 				new Road('Wells', true, [
-					new Car('Car', 'green')
+					new Car('Car', (board.size * 0.7))
 				]),
 				new Road('Federal', true, [
-					new Car('Car', 'gray')
+					new Car('Car', (board.size * 0.0))
 				]),
 				new Road('State', true, [
-					new Car('Car', 'purple')
+					new Car('Car', (board.size * 0.2))
 				]),
 				new Road('Michigan', true, [
-					new Car('Car', 'blue')
+					new Car('Car', (board.size * 0.5))
 				])
 			]);
 			board.print();
