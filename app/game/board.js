@@ -23,28 +23,15 @@ Board.prototype.pollute = function(){
 					var yOffSet = this.roadSize + (-1 * ((this.size - this.roadSize) / 2));
 					var xRandom = Math.random() * ((this.size) + (yOffSet / 4));
 					var yRandom = Math.random() * ((this.size - this.roadSize));
-					this.clouds.push(new Cloud(xRandom, yRandom));
+					this.clouds.push(new Cloud(xRandom, yRandom, this.id));
 				}
 			}
 		}
 	}
 }
 
-Board.prototype.printPollution = function(){
-	var html = "";
-	var xOffSet = this.roadSize;
-	var yOffSet = this.roadSize + (-1 * ((this.size - this.roadSize) / 2));
-	for(var c = 0; c < this.clouds.length; c++){
-		html += this.clouds[c].toHTML();
-	}
-	if(printed){
-		document.getElementById(this.id + '-clouds').innerHTML = html;
-	}
-}
-
 Board.prototype.update = function(){
 	this.pollute();
-	this.printPollution();
 	for(var r = 0; r < this.roads.length; r++){
 		this.roads[r].update(this.size, this.roadSize);
 	}

@@ -10,10 +10,13 @@ Cloud.prototype.id = ""; //String
 Cloud.prototype.xCoord = 0; //Double
 Cloud.prototype.yCoord = 0; //Double
 
-function Cloud(x, y){
+function Cloud(x, y, boardID){
 	this.id = newCloudID();
 	this.xCoord = x || 0;
 	this.yCoord = y || 0;
+	if(printed){
+		document.getElementById(boardID + '-clouds').innerHTML += this.toHTML();
+	}
 }
 
 Cloud.prototype.toHTML = function(){
