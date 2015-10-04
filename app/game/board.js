@@ -16,8 +16,10 @@ Board.prototype.update = function(){
 Board.prototype.toHTML = function(){
 	html = '';
 	html += '<div class="board">';
+	var offSet = 0;
 	for(var r = 0; r < this.roads.length; r++){
-		html += this.roads[r].toHTML();
+		offSet += 10;
+		html += this.roads[r].toHTML(offSet.toString() + 'px');
 	}
 	html += '</div>';
 	return html;

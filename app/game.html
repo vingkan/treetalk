@@ -19,7 +19,7 @@
 
 		<div id="test" class="gameContainer"></div>
 
-		<div id="gameSpace" class="gameContainer">
+		<div id="gameSpace" class="gameContainer" style="display:none;">
 			<div class="board">
 				<div class="road">
 					<div class="car">Car</div>
@@ -53,6 +53,20 @@
 
 		<script type="text/javascript">
 
+			var board = new Board('test');
+			board.addRoads([
+				new Road('33rd', false, [
+					new Car('Car', 'red')
+				]),
+				new Road('35th', false, [
+					new Car('Car', 'green')
+				]),
+				new Road('State', true, [
+					new Car('Car', 'blue')
+				])
+			]);
+			board.update();
+
 			function updateBoardSize(size){
 				less.modifyVars({
 					'@boardSize': size
@@ -69,16 +83,6 @@
 			}
 
 			$(window).resize(updateGameWindow).resize();
-
-			var board = new Board('test');
-			board.addRoads([
-				new Road('35th', false, [
-					new Car('Car', 'red')
-				]),
-				new Road('State', true, [
-					new Car('Car', 'blue')
-				])
-			]);
 
 
 		</script>
