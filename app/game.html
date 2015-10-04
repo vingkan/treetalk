@@ -4,8 +4,10 @@
 		<title>Tree Talk</title>
 		<link rel="stylesheet" type="text/css" href="style/reset.css">
 		<link rel="stylesheet" type="text/css" href="style/main.css">
-		<link rel="stylesheet" type="text/css" href="style/game.css">
+		<link rel="stylesheet" type="text/less" href="style/game.less">
+		<!-- <link rel="stylesheet" type="text/css" href="style/game.css"> -->
 		<link href='https://fonts.googleapis.com/css?family=Bubblegum+Sans|Cabin:400,400italic,700' rel='stylesheet' type='text/css'>
+		<script type="text/javascript" src="style/less-1.5.0.min.js"></script>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<script src="http://maps.googleapis.com/maps/api/js"></script>
 		<style>
@@ -13,6 +15,17 @@
 
 
 		</style>
+		<script type="text/javascript">
+
+			function updateBoardSize(size){
+				less.modifyVars({
+					'@boardSize': size
+				});
+			}
+
+			updateBoardSize('500px');
+
+		</script>
 	</head>
 	<body>
 
@@ -43,7 +56,9 @@
 
 		<script type="text/javascript">
 
-
+			/*less.render('.class { width: (1 + 1) }', function (e, output){
+				console.log(output.css);
+			});*/
 
 		</script>
 		
