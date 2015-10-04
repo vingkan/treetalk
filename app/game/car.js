@@ -15,11 +15,11 @@ Car.prototype.position = 0 //Double as percentage of boardSize
 Car.prototype.appearanceOptions = 36; //Body Type as Integer
 Car.prototype.appearance = 1; //Body Type as Integer
 
-function Car(name, position){
+function Car(name){
 	this.id = newCarID();
 	this.name = name || "Car";
 	this.boardSize = 100;
-	this.position = position || 0;
+	this.position = Math.random() * this.boardSize * 2;
 	this.appearance = Math.round((Math.random() * (this.appearanceOptions - 1)) + 1);
 }
 
