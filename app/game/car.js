@@ -11,7 +11,8 @@ function newCarID(){
 Car.prototype.id = "" //String: ID of DOM representation
 Car.prototype.name = "" //String
 Car.prototype.color = "" //Color as String
-Car.prototype.position = 0 //Double
+Car.prototype.boardSize = 100; //Double
+Car.prototype.position = 0 //Double as percentage of boardSize
 Car.prototype.appearanceOptions = 36; //Body Type as Integer
 Car.prototype.appearance = 1; //Body Type as Integer
 
@@ -19,12 +20,14 @@ function Car(name, color, position){
 	this.id = newCarID();
 	this.name = name || "Car";
 	this.color = color || "red";
+	this.boardSize = 100;
 	this.position = position || 0;
 	this.appearance = Math.round((Math.random() * (this.appearanceOptions - 1)) + 1);
 }
 
 Car.prototype.update = function(boardSize, roadSize, increment){
 	//console.log("updated car: " + this.name);
+	this.boardSize = boardSize;
 	this.position += increment;
 	if(this.position > (boardSize + roadSize)){
 		console.log("out of road bounds");
