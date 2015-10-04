@@ -30,7 +30,6 @@ Car.prototype.update = function(boardSize, roadSize, increment){
 	this.boardSize = boardSize;
 	this.position += increment;
 	if(this.position > (boardSize + roadSize)){
-		console.log("out of road bounds");
 		this.position = -2.5 * roadSize;
 		if(printed){
 			document.getElementById(this.id).style.display = "none";	
