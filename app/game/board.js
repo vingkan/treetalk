@@ -25,7 +25,7 @@ Board.prototype.toHTML = function(){
 	var xOffSet = this.roadSize;
 	var yOffSet = this.roadSize + (-1 * ((this.size - this.roadSize) / 2));
 	var offsetInterval = this.roadSize * 3;
-	for(var c = 0; c < 10000; c++){
+	for(var c = 0; c < 100; c++){
 		var xRandom = Math.random() * ((this.size) + (yOffSet / 4));
 		var yRandom = Math.random() * ((this.size - this.roadSize));
 		html += '<div class="cloud" ';

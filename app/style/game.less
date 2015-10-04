@@ -60,9 +60,13 @@ div.vertical{
 div.car{
 	@carSize: @roadWidth * 0.75;
 	position: absolute;
-	background: red;
+	background-size: @carSize;
+	background-repeat: no-repeat;
+	background-position: (@roadWidth * 0.25) / 2;
+	filter: saturate(5);
+	-webkit-filter: saturate(5);
 	margin-top: (@roadWidth * 0.25) / 2;
-	width: @carSize;
+	width: @carSize * 2;
 	height: @carSize;
 	border-radius: @carSize * 0.25;
 	line-height: @carSize;
@@ -86,5 +90,7 @@ div.cloud{
 	position: absolute;
 	width: @roadWidth;
 	height: @roadWidth;
-	background: black;
+	background-image: url('cloud.png');
+	background-size: @roadWidth auto;
+	background-repeat: no-repeat;
 }
