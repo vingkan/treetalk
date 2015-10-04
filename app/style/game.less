@@ -11,7 +11,7 @@
 @crossingSpeed: 10s;
 
 div.gameContainer{
-	float: left;
+	//float: left;
 }
 
 @borderPad: (@roadWidth * 0.25) solid transparent;
@@ -20,7 +20,6 @@ div.board{
 	width: @boardSize;
 	height: @boardSize;
 	margin: 0 auto;
-	background: @darkTone;
 	border: @borderPad;
 }
 
@@ -81,4 +80,11 @@ div.car{
 
 .MovingCar(@speed: @crossingSpeed){
 	animation: moveCar @speed linear infinite;
+}
+
+div.cloud{
+	position: absolute;
+	width: @roadWidth;
+	height: @roadWidth;
+	background: black;
 }
