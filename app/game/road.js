@@ -1,8 +1,18 @@
+var roadIDList = [];
+
+function newRoadID(){
+	var newID = "road" + roadIDList.length;
+	roadIDList.push(newID);
+	return newID;
+}
+
+Road.prototype.id = "" //String: ID of DOM representation
 Road.prototype.name = ""; //String
 Road.prototype.vertical = false; //Boolean
 Road.prototype.cars = []; //Array of Cars
 
 function Road(name, vertical, cars){
+	this.id = newRoadID();
 	this.name = name;
 	this.vertical = vertical || false;
 	this.cars = cars || [];

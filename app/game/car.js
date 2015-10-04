@@ -1,3 +1,12 @@
+var carIDList = [];
+
+function newCarID(){
+	var newID = "car" + carIDList.length;
+	carIDList.push(newID);
+	return newID;
+}
+
+Car.prototype.id = "" //String: ID of DOM representation
 Car.prototype.name = "" //String
 Car.prototype.color = "" //Color as String
 Car.prototype.position = 0 //Double
@@ -5,6 +14,7 @@ Car.prototype.appearanceOptions = 36; //Body Type as Integer
 Car.prototype.appearance = 1; //Body Type as Integer
 
 function Car(name, color, position){
+	this.id = newCarID();
 	this.name = name || "Car";
 	this.color = color || "red";
 	this.position = position || 100;
