@@ -19,16 +19,24 @@ function Car(name, color, position){
 	this.id = newCarID();
 	this.name = name || "Car";
 	this.color = color || "red";
-	this.position = position || 100;
+	this.position = position || 0;
 	this.appearance = Math.round((Math.random() * (this.appearanceOptions - 1)) + 1);
 }
 
 Car.prototype.update = function(boardSize, roadSize, increment){
 	//console.log("updated car: " + this.name);
 	this.position += increment;
-	if(this.position > boardSize){
+	if(this.position > (boardSize + roadSize)){
 		console.log("out of road bounds");
-		this.position = -1 * roadSize;
+		this.position = -2.5 * roadSize;
+		if(printed){
+			document.getElementById(this.id).style.display = "none";	
+		}
+	}
+	else{
+		if(printed){
+			document.getElementById(this.id).style.display = "block";	
+		}	
 	}
 	if(printed){
 		document.getElementById(this.id).style.marginLeft = this.position + "px";	

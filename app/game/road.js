@@ -25,7 +25,7 @@ Road.prototype.update = function(boardSize, roadSize){
 	//console.log("updated road: " + this.name);
 	this.roadSize = boardSize;
 	this.roadSize = roadSize;
-	var increment = boardSize / 20;
+	var increment = boardSize / 10;
 	for(var c = 0; c < this.cars.length; c++){
 		this.cars[c].update(boardSize, roadSize, increment);
 	}
