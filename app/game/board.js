@@ -20,10 +20,18 @@ Board.prototype.update = function(){
 Board.prototype.toHTML = function(){
 	html = '';
 	html += '<div class="board">';
-	var offSet = 0;
+	var xOffSet = 0;
+	var yOffSet = 0;
 	for(var r = 0; r < this.roads.length; r++){
-		offSet += 10;
-		html += this.roads[r].toHTML(offSet.toString() + 'px');
+		console.log('x: ' + xOffSet + ', y: ' + yOffSet);
+		if(this.roads[r].vertical){
+			html += this.roads[r].toHTML(yOffSet.toString() + 'px');
+			yOffSet += this.roadSize * 2;
+		}
+		else{
+			html += this.roads[r].toHTML(xOffSet.toString() + 'px');
+			xOffSet += this.roadSize * 2;
+		}
 	}
 	html += '</div>';
 	return html;

@@ -18,10 +18,7 @@ Road.prototype.toHTML = function(offset){
 		marginTag = "margin-left";
 	}
 	html += '<div class="road' + verticalModifier;
-	//html += 'style="' + marginTag + ':' + marginSize + ';>"';
-	if(!this.vertical){
-		html += 'style="' + marginTag + ':' + marginSize + ';"';
-	}
+	html += 'style="' + marginTag + ':' + marginSize + ';"';
 	html += '>';
 	for(var c = 0; c < this.cars.length; c++){
 		html += this.cars[c].toHTML();
