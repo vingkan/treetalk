@@ -3,7 +3,7 @@ Board.prototype.size = 400; //Pixels as Double
 Board.prototype.roadSize = 40; //Pixels as Double
 Board.prototype.roads = [] //Array of Roads
 Board.prototype.trees = [] //Array of Trees
-Board.prototype.clouds = 0 //Integer
+Board.prototype.clouds = [] //Array of Clouds
 
 function Board(id){
 	this.id = id || "gameSpace";
@@ -11,20 +11,22 @@ function Board(id){
 	this.roadSize = 40;
 	this.roads = [];
 	this.trees = [];
-	this.clouds = 0;
+	this.clouds = [];
 }
 
 Board.prototype.pollute = function(){
-	var pollution = 0;
-	pollution = 1 * this.roads.length;
-	this.clouds += pollution;
+	for(var r = 0; r < this.roads.length; r++){
+		for(var c = 0; c < this.roads[r].cars.length; c++){
+			this.clouds.push(new Cloud());
+		}
+	}
 }
 
 Board.prototype.printPollution = function(){
 	var html = "";
 	var xOffSet = this.roadSize;
 	var yOffSet = this.roadSize + (-1 * ((this.size - this.roadSize) / 2));
-	for(var c = 0; c < this.clouds; c++){
+	for(var c = 0; c < this.clouds.length; c++){
 		var xRandom = Math.random() * ((this.size) + (yOffSet / 4));
 		var yRandom = Math.random() * ((this.size - this.roadSize));
 		html += '<div class="cloud" ';
