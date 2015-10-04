@@ -15,16 +15,14 @@ function Board(id){
 }
 
 Board.prototype.pollute = function(){
-	if(this.clouds.length > 1000){
-		this.clouds = [];
-	}
-	for(var r = 0; r < this.roads.length; r++){
-		for(var c = 0; c < this.roads[r].cars.length; c++){
-			if(this.roads[r].vertical){
-				this.clouds.push(new Cloud(this.roads[r].offset, this.roads[r].cars[c].position));
-			}
-			else{
-				this.clouds.push(new Cloud(this.roads[r].cars[c].position, this.roads[r].offset));
+	if(this.clouds.length < 100){
+		for(var r = 0; r < this.roads.length; r++){
+			for(var c = 0; c < this.roads[r].cars.length; c++){
+				var xOffSet = this.roadSize;
+				var yOffSet = this.roadSize + (-1 * ((this.size - this.roadSize) / 2));
+				var xRandom = Math.random() * ((this.size) + (yOffSet / 4));
+				var yRandom = Math.random() * ((this.size - this.roadSize));
+				this.clouds.push(new Cloud(xRandom, yRandom));
 			}
 		}
 	}
@@ -35,12 +33,7 @@ Board.prototype.printPollution = function(){
 	var xOffSet = this.roadSize;
 	var yOffSet = this.roadSize + (-1 * ((this.size - this.roadSize) / 2));
 	for(var c = 0; c < this.clouds.length; c++){
-		var xRandom = Math.random() * ((this.size) + (yOffSet / 4));
-		var yRandom = Math.random() * ((this.size - this.roadSize));
-		html += '<div class="cloud" ';
-		html += 'style="margin-left:' + xRandom + 'px;';
-		html += 'margin-top:' + yRandom + 'px;"></div>';
-		//html += this.clouds[c].toHTML();
+		html += this.clouds[c].toHTML();
 	}
 	if(printed){
 		document.getElementById(this.id + '-clouds').innerHTML = html;
