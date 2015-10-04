@@ -59,6 +59,9 @@
 					new Car('Car', 'red')
 				]),
 				new Road('35th', false, [
+					new Car('Car', 'yellow')
+				]),
+				new Road('Clark', true, [
 					new Car('Car', 'green')
 				]),
 				new Road('State', true, [
@@ -80,8 +83,9 @@
 			function updateGameWindow(){
 				var limitSize = getWindowDimensionLimit();
 				board.size = limitSize;
-				board.roadSize = limitSize / 10;
+				board.roadSize = limitSize / 12;
 				updateBoardSize(limitSize.toString() + "px");
+				board.update();
 			}
 
 			$(window).resize(updateGameWindow).resize();

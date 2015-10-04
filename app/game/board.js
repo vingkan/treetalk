@@ -21,16 +21,17 @@ Board.prototype.toHTML = function(){
 	html = '';
 	html += '<div class="board">';
 	var xOffSet = 0;
-	var yOffSet = 0;
+	var yOffSet = -1 * ((this.size - this.roadSize) / 2);
+	var offsetInterval = this.roadSize * 3;
 	for(var r = 0; r < this.roads.length; r++){
 		console.log('x: ' + xOffSet + ', y: ' + yOffSet);
 		if(this.roads[r].vertical){
 			html += this.roads[r].toHTML(yOffSet.toString() + 'px');
-			yOffSet += this.roadSize * 2;
+			yOffSet += offsetInterval;
 		}
 		else{
 			html += this.roads[r].toHTML(xOffSet.toString() + 'px');
-			xOffSet += this.roadSize * 2;
+			xOffSet += offsetInterval;
 		}
 	}
 	html += '</div>';
