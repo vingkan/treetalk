@@ -43,7 +43,7 @@ Road.prototype.toHTML = function(offset){
 		marginTag = "margin-left";
 	}
 	html += '<div id="' + this.id + '" class="road' + verticalModifier;
-	html += 'style="' + marginTag + ':' + marginSize + ';"';
+	html += 'style="' + marginTag + ':' + marginSize + 'px;"';
 	html += '>';
 	html += '<p class="roadName">' + this.name + '</p>';
 	for(var c = 0; c < this.cars.length; c++){

@@ -15,9 +15,17 @@ function Board(id){
 }
 
 Board.prototype.pollute = function(){
+	if(this.clouds.length > 50){
+		this.clouds = [];
+	}
 	for(var r = 0; r < this.roads.length; r++){
 		for(var c = 0; c < this.roads[r].cars.length; c++){
-			this.clouds.push(new Cloud());
+			if(this.roads[r].vertical){
+				this.clouds.push(new Cloud(this.roads[r].offset, this.roads[r].cars[c].position));
+			}
+			else{
+				this.clouds.push(new Cloud(this.roads[r].cars[c].position, this.roads[r].offset));
+			}
 		}
 	}
 }
@@ -63,11 +71,11 @@ Board.prototype.toHTML = function(){
 	html += '</div>';
 	for(var r = 0; r < this.roads.length; r++){
 		if(this.roads[r].vertical){
-			html += this.roads[r].toHTML(yOffSet.toString() + 'px');
+			html += this.roads[r].toHTML(yOffSet);
 			yOffSet += offsetInterval;
 		}
 		else{
-			html += this.roads[r].toHTML(xOffSet.toString() + 'px');
+			html += this.roads[r].toHTML(xOffSet);
 			xOffSet += offsetInterval;
 		}
 	}
