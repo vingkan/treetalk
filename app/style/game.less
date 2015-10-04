@@ -5,6 +5,7 @@
 
 @boardSize: 450px;
 @roadWidth: @boardSize / 12;
+@crossingSpeed: 10s;
 
 div.gameSpace{
 	width: @boardSize;
@@ -39,7 +40,7 @@ div.car{
 	height: @roadWidth * 0.75;
 	line-height: @roadWidth * 0.75;
 	text-align: center;
-	.MovingCar(10s);
+	.MovingCar();
 	z-index: 10;
 }
 
@@ -49,6 +50,6 @@ div.car{
 	}
 }
 
-.MovingCar(@speed: 5s){
+.MovingCar(@speed: @crossingSpeed){
 	animation: moveCar @speed linear infinite;
 }
