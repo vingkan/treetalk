@@ -31,6 +31,7 @@ Board.prototype.print = function(){
 	this.update();
 	var gameSpaceDiv = document.getElementById(this.id);
 	gameSpaceDiv.innerHTML = this.toHTML();
+	printed = true;
 }
 
 Board.prototype.toHTML = function(){

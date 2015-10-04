@@ -23,7 +23,7 @@ function Road(name, vertical, cars){
 Road.prototype.update = function(roadSize){
 	//console.log("updated road: " + this.name);
 	this.roadSize = roadSize;
-	var increment = 1;
+	var increment = roadSize;
 	for(var c = 0; c < this.cars.length; c++){
 		this.cars[c].update(increment);
 	}
