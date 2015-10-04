@@ -8,6 +8,7 @@ function newRoadID(){
 
 Road.prototype.id = "" //String: ID of DOM representation
 Road.prototype.name = ""; //String
+Road.prototype.boardSize = 100; //Double
 Road.prototype.roadSize = 10; //Double
 Road.prototype.vertical = false; //Boolean
 Road.prototype.cars = []; //Array of Cars
@@ -20,12 +21,13 @@ function Road(name, vertical, cars){
 	this.cars = cars || [];
 }
 
-Road.prototype.update = function(roadSize){
+Road.prototype.update = function(boardSize, roadSize){
 	//console.log("updated road: " + this.name);
+	this.roadSize = boardSize;
 	this.roadSize = roadSize;
-	var increment = roadSize;
+	var increment = boardSize / 20;
 	for(var c = 0; c < this.cars.length; c++){
-		this.cars[c].update(increment);
+		this.cars[c].update(boardSize, roadSize, increment);
 	}
 }
 

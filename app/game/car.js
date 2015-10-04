@@ -23,9 +23,13 @@ function Car(name, color, position){
 	this.appearance = Math.round((Math.random() * (this.appearanceOptions - 1)) + 1);
 }
 
-Car.prototype.update = function(increment){
+Car.prototype.update = function(boardSize, roadSize, increment){
 	//console.log("updated car: " + this.name);
 	this.position += increment;
+	if(this.position > boardSize){
+		console.log("out of road bounds");
+		this.position = -1 * roadSize;
+	}
 	if(printed){
 		document.getElementById(this.id).style.marginLeft = this.position + "px";	
 	}
