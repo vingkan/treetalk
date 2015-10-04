@@ -15,7 +15,7 @@ function Board(id){
 }
 
 Board.prototype.pollute = function(){
-	if(this.clouds.length > 50){
+	if(this.clouds.length > 1000){
 		this.clouds = [];
 	}
 	for(var r = 0; r < this.roads.length; r++){
@@ -40,6 +40,7 @@ Board.prototype.printPollution = function(){
 		html += '<div class="cloud" ';
 		html += 'style="margin-left:' + xRandom + 'px;';
 		html += 'margin-top:' + yRandom + 'px;"></div>';
+		//html += this.clouds[c].toHTML();
 	}
 	if(printed){
 		document.getElementById(this.id + '-clouds').innerHTML = html;

@@ -16,6 +16,14 @@ function Cloud(x, y){
 	this.yCoord = y || 0;
 }
 
+Cloud.prototype.toHTML = function(){
+	var html = '';
+	html += '<div id="' + this.id + '" class="cloud" style="';
+	html += 'margin-left:' + this.xCoord + 'px;margin-top:' + this.yCoord + 'px;">';
+	html += '</div>';
+	return html;
+}
+
 Cloud.prototype.toString = function(){
 	return this.id + " at {" + this.xCoord + ", " + this.yCoord + "}";
 }
