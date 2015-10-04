@@ -1,5 +1,7 @@
 var carIDList = [];
 
+var printed = false;
+
 function newCarID(){
 	var newID = "car" + carIDList.length;
 	carIDList.push(newID);
@@ -24,7 +26,9 @@ function Car(name, color, position){
 Car.prototype.update = function(increment){
 	//console.log("updated car: " + this.name);
 	this.position += increment;
-	//document.getElementById("'" + this.id + "'").style.marginLeft = this.position;
+	if(printed){
+		document.getElementById(this.id).style.marginLeft = this.position + "px";	
+	}
 }
 
 Car.prototype.toHTML = function(){

@@ -23,7 +23,7 @@ Board.prototype.pollute = function(){
 Board.prototype.update = function(){
 	this.pollute();
 	for(var r = 0; r < this.roads.length; r++){
-		this.roads[r].update();
+		this.roads[r].update(this.roadSize);
 	}
 }
 

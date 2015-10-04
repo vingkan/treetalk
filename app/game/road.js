@@ -8,18 +8,21 @@ function newRoadID(){
 
 Road.prototype.id = "" //String: ID of DOM representation
 Road.prototype.name = ""; //String
+Road.prototype.roadSize = 10; //Double
 Road.prototype.vertical = false; //Boolean
 Road.prototype.cars = []; //Array of Cars
 
 function Road(name, vertical, cars){
 	this.id = newRoadID();
 	this.name = name;
+	this.roadSize = 10;
 	this.vertical = vertical || false;
 	this.cars = cars || [];
 }
 
-Road.prototype.update = function(){
+Road.prototype.update = function(roadSize){
 	//console.log("updated road: " + this.name);
+	this.roadSize = roadSize;
 	var increment = 1;
 	for(var c = 0; c < this.cars.length; c++){
 		this.cars[c].update(increment);
