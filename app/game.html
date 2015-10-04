@@ -46,6 +46,7 @@
 		<!-- GAME SCRIPTS -->
 		<script type="text/javascript" src="game/board.js"></script>
 		<script type="text/javascript" src="game/road.js"></script>
+		<script type="text/javascript" src="game/car.js"></script>
 
 		<!-- MAIN SCRIPT -->
 		<script type="text/javascript" src="main.js"></script>
@@ -71,8 +72,12 @@
 
 			var board = new Board('test');
 			board.addRoads([
-				new Road('35th', false),
-				new Road('State', true)
+				new Road('35th', false, [
+					new Car('Car', 'red')
+				]),
+				new Road('State', true, [
+					new Car('Car', 'blue')
+				])
 			]);
 
 
