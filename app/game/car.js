@@ -25,6 +25,14 @@ function Car(name, color, position){
 	this.appearance = Math.round((Math.random() * (this.appearanceOptions - 1)) + 1);
 }
 
+Car.prototype.isPolluting = function(){
+	var polluting = false;
+	if(Math.random() > 0.5){
+		polluting = true;
+	}
+	return polluting;
+}
+
 Car.prototype.update = function(boardSize, roadSize, increment){
 	//console.log("updated car: " + this.name);
 	this.boardSize = boardSize;

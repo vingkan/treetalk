@@ -18,11 +18,13 @@ Board.prototype.pollute = function(){
 	if(this.clouds.length < 100){
 		for(var r = 0; r < this.roads.length; r++){
 			for(var c = 0; c < this.roads[r].cars.length; c++){
-				var xOffSet = this.roadSize;
-				var yOffSet = this.roadSize + (-1 * ((this.size - this.roadSize) / 2));
-				var xRandom = Math.random() * ((this.size) + (yOffSet / 4));
-				var yRandom = Math.random() * ((this.size - this.roadSize));
-				this.clouds.push(new Cloud(xRandom, yRandom));
+				if(this.roads[r].cars[c].isPolluting()){
+					var xOffSet = this.roadSize;
+					var yOffSet = this.roadSize + (-1 * ((this.size - this.roadSize) / 2));
+					var xRandom = Math.random() * ((this.size) + (yOffSet / 4));
+					var yRandom = Math.random() * ((this.size - this.roadSize));
+					this.clouds.push(new Cloud(xRandom, yRandom));
+				}
 			}
 		}
 	}
