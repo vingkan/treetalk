@@ -17,7 +17,9 @@
 	</head>
 	<body>
 
-		<div id="gameSpace">
+		<div id="test" class="gameContainer"></div>
+
+		<div id="gameSpace" class="gameContainer">
 			<div class="board">
 				<div class="road">
 					<div class="car">Car</div>
@@ -67,7 +69,7 @@
 
 			$(window).resize(updateGameWindow).resize();
 
-			var board = new Board();
+			var board = new Board('test');
 			board.addRoads([
 				new Road('35th', false),
 				new Road('State', true)

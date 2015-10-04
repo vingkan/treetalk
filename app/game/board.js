@@ -2,10 +2,15 @@ Board.prototype.gameSpace = "" //String: parent div for board
 Board.prototype.roads = [] //Array of Roads
 Board.prototype.trees = [] //Array of Trees
 
-function Board(){
-	this.gameSpace = "gameSpace";
+function Board(gameSpaceID){
+	this.gameSpace = gameSpaceID || "gameSpace";
 	this.roads = [];
 	this.trees = [];
+}
+
+Board.prototype.update = function(){
+	var gameSpaceDiv = document.getElementById(this.gameSpace);
+	gameSpaceDiv.innerHTML = this.toHTML();
 }
 
 Board.prototype.toHTML = function(){

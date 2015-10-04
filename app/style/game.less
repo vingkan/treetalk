@@ -7,6 +7,10 @@
 @roadWidth: @boardSize / 12;
 @crossingSpeed: 10s;
 
+div.gameContainer{
+	float: left;
+}
+
 div.board{
 	width: @boardSize;
 	height: @boardSize;
@@ -30,6 +34,7 @@ div.road{
 div.vertical{
 	transform: rotate(-90deg);
 	margin-top: (@boardSize - @roadWidth) / 2;
+	margin-left: -1 * ((@boardSize - @roadWidth) / 2);
 }
 
 div.car{
