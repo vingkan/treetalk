@@ -20,8 +20,8 @@ Board.prototype.update = function(){
 Board.prototype.toHTML = function(){
 	html = '';
 	html += '<div class="board">';
-	var xOffSet = 0;
-	var yOffSet = -1 * ((this.size - this.roadSize) / 2);
+	var xOffSet = this.roadSize;
+	var yOffSet = this.roadSize + (-1 * ((this.size - this.roadSize) / 2));
 	var offsetInterval = this.roadSize * 3;
 	for(var r = 0; r < this.roads.length; r++){
 		console.log('x: ' + xOffSet + ', y: ' + yOffSet);

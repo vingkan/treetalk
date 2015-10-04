@@ -1,3 +1,6 @@
+@focusTone: #61B329;
+@lightTone: @focusTone + #222222;
+@darkTone: @focusTone - #222222;
 @charcoal: #1a1a1a;
 
 @BubblegumSans: 'Bubblegum Sans', cursive;
@@ -15,7 +18,7 @@ div.board{
 	width: @boardSize;
 	height: @boardSize;
 	margin: 0 auto;
-	background: @charcoal + #444;
+	background: @darkTone;
 }
 
 div.road{
@@ -27,17 +30,18 @@ div.road{
 	background: rgba(26, 26, 26, 0.5);
 	color: white;
 	font-family: @Cabin;
-	text-align: center;
+	text-align: right;
 	z-index: 5;
 
 	p.roadName{
 		position: absolute;
-		color: white;
+		color: lighten(@charcoal, 50%);
 		width: 100%;
 		height: @roadWidth;
 		line-height: @roadWidth;
-		padding: 0;
+		font-size: @roadWidth / 2;
 		margin: 0;
+		padding: 0;
 	}
 
 }
@@ -45,15 +49,19 @@ div.road{
 div.vertical{
 	transform: rotate(-90deg);
 	margin-top: (@boardSize - @roadWidth) / 2;
+	text-align: left;
 }
 
 div.car{
+	@carSize: @roadWidth * 0.75;
 	position: absolute;
 	background: red;
 	margin-top: (@roadWidth * 0.25) / 2;
-	width: @roadWidth * 0.75;
-	height: @roadWidth * 0.75;
-	line-height: @roadWidth * 0.75;
+	width: @carSize;
+	height: @carSize;
+	border-radius: @carSize * 0.25;
+	line-height: @carSize;
+	font-size: @carSize / 2;
 	text-align: center;
 	.MovingCar();
 	z-index: 10;
