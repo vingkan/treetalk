@@ -28,7 +28,7 @@ Car.prototype.update = function(increment){
 
 Car.prototype.toHTML = function(){
 	var html = '';
-	html += '<div class="car" style="margin-left:';
+	html += '<div id="' + this.id + '" class="car" style="margin-left:';
 	html += this.position + 'px;background-image:';
 	html += 'url(style/cars/path' + (2192 + this.appearance) * 2 + '.png);">';
 	html += '</div>';
