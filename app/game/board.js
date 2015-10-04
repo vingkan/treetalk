@@ -16,7 +16,7 @@ function Board(gameSpaceID){
 
 Board.prototype.pollute = function(){
 	var pollution = 0;
-	pollution = 1 * this.roads.length;
+	pollution = 0 * this.roads.length;
 	this.clouds += pollution;
 }
 
