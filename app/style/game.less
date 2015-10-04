@@ -14,11 +14,14 @@ div.gameContainer{
 	float: left;
 }
 
+@borderPad: (@roadWidth * 0.25) solid transparent;
+
 div.board{
 	width: @boardSize;
 	height: @boardSize;
 	margin: 0 auto;
 	background: @darkTone;
+	border: @borderPad;
 }
 
 div.road{
@@ -32,6 +35,9 @@ div.road{
 	font-family: @Cabin;
 	text-align: right;
 	z-index: 5;
+	border-left: @borderPad;
+	border-right: @borderPad;
+	margin-left: (@roadWidth * -0.25);
 
 	p.roadName{
 		position: absolute;
