@@ -15,4 +15,5 @@ Board.prototype.toHTML = function(){
 		html += this.roads[r].toHTML();
 	}
 	html += '</div>';
+	return html;
 }
