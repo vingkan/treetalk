@@ -16,12 +16,15 @@ function Board(gameSpaceID){
 
 Board.prototype.pollute = function(){
 	var pollution = 0;
-	pollution = 10 * this.roads.length;
+	pollution = 1 * this.roads.length;
 	this.clouds += pollution;
 }
 
 Board.prototype.update = function(){
 	this.pollute();
+	for(var r = 0; r < this.roads.length; r++){
+		this.roads[r].update();
+	}
 	var gameSpaceDiv = document.getElementById(this.gameSpace);
 	gameSpaceDiv.innerHTML = this.toHTML();
 }

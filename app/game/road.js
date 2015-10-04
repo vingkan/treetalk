@@ -8,6 +8,10 @@ function Road(name, vertical, cars){
 	this.cars = cars || [];
 }
 
+Road.prototype.update = function(){
+	console.log("updated road: " + this.name);
+}
+
 Road.prototype.toHTML = function(offset){
 	html = '';
 	var verticalModifier = '" ';
