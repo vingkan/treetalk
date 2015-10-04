@@ -9,6 +9,10 @@ function Car(name, color){
 	this.appearance = Math.round((Math.random() * (this.appearanceOptions - 1)) + 1);
 }
 
+Car.prototype.update = function(){
+	console.log("updated car: " + this.name);
+}
+
 Car.prototype.toHTML = function(){
 	var html = '';
 	html += '<div class="car" style="background-image:';
