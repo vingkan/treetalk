@@ -22,8 +22,15 @@ function instructionsAlert(message, time){
 	setTimeout(function(){
 		document.getElementById('instructionsAlert').style.height = '0vh';
 	}, time);
+	return 1.25 * time;
 }
 
 function instructionsSequence(){
-	instructionsAlert("Welcome to Tree Talk: The Game!", 1000);
+	setTimeout(function(){
+		setTimeout(function(){
+			setTimeout(function(){
+				instructionsAlert("Tap the light green menu on your left and find some trees to help you!", 2000)
+			},instructionsAlert("Thankfully, trees help replace CO2 with oxygen.", 2000))
+		}, instructionsAlert("These cars near you are creating tons of pollution!", 2000))
+	}, instructionsAlert("Welcome to Tree Talk: The Game!", 2000))
 }

@@ -88,6 +88,9 @@ function dropTree(event){
 	document.getElementById(event.target.id).innerHTML += treeHTML;
 	//event.target.appendChild(treeHTML);
 	plantTree('You planted a new tree!');
+	setTimeout(function(){
+		instructionsAlert('Click on this tree to clean the air around it!', 3000);
+	}, 2000);
 }
 
 function showTree(treeID){
@@ -99,7 +102,7 @@ function plantTree(message){
 	document.getElementById('plantTreeAlert').style.height = '10vh';
 	setTimeout(function(){
 		document.getElementById('plantTreeAlert').style.height = '0vh';
-	}, 3000);
+	}, 2000);
 }
 
 Tree.prototype.toWindowHTML = function(){

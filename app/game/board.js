@@ -1,4 +1,5 @@
 var printed = false;
+var learning = true;
 
 Board.prototype.id = "" //String: parent div for board
 Board.prototype.size = 400; //Pixels as Double
