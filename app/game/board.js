@@ -105,6 +105,25 @@ Board.prototype.addRoads = function(roadsArray){
 	}
 }
 
+Board.prototype.addTrees = function(treesArray){
+	for(var t = 0; t < treesArray.length; t++){
+		this.trees.push(treesArray[t]);
+	}
+}
+
+Board.prototype.getTreeById = function(treeID){
+	var response = null;
+	for(var t = 0; t < this.trees.length; t++){
+		if(this.trees[t].id == treeID){
+			response = this.trees[t];
+			break;
+		}
+	}
+	if(response != null){
+		return response;
+	}
+}
+
 Board.prototype.getAllCars = function(){
 	var allCars = [];
 	for(var r = 0; r < this.roads.length; r++){

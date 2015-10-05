@@ -109,6 +109,7 @@
 					for(var r = 0; r < results.length; r++){
 						output.innerHTML += results[r].toWindowHTML();
 					}
+					board.addTrees(results);
 				}
 				var callId = 'nearby_trees';
 				var limit = 10;

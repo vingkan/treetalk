@@ -83,8 +83,8 @@ function dragTree(event, treeID){
 
 function dropTree(event){
 	event.preventDefault();
-	var data = event.dataTransfer.getData("text");
-	var treeHTML = '<h1 style="color:white;">' + data + '</h1>';
+	var treeID = event.dataTransfer.getData("text");
+	var treeHTML = board.getTreeById(treeID).toSweeperHTML();
 	document.getElementById(event.target.id).innerHTML += treeHTML;
 	//event.target.appendChild(treeHTML);
 	plantTree('You planted a new tree!');
