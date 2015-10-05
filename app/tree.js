@@ -25,7 +25,7 @@ function cloudAlert(numberCleaned){
 	document.getElementById('cleanedCloudsAlert').style.height = '10vh';
 	setTimeout(function(){
 		document.getElementById('cleanedCloudsAlert').style.height = '0vh';
-	}, 1000);
+	}, 3000);
 }
 
 function absorb(sweepIndex){
