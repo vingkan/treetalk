@@ -1,3 +1,5 @@
+var printed = false;
+
 Board.prototype.id = "" //String: parent div for board
 Board.prototype.size = 400; //Pixels as Double
 Board.prototype.roadSize = 40; //Pixels as Double
@@ -15,7 +17,7 @@ function Board(id){
 }
 
 Board.prototype.pollute = function(){
-	if(this.clouds.length < 100){
+	if(this.clouds.length < 500){
 		for(var r = 0; r < this.roads.length; r++){
 			for(var c = 0; c < this.roads[r].cars.length; c++){
 				if(this.roads[r].cars[c].isPolluting()){
@@ -34,6 +36,9 @@ Board.prototype.update = function(){
 	this.pollute();
 	for(var r = 0; r < this.roads.length; r++){
 		this.roads[r].update(this.size, this.roadSize);
+	}
+	for(var c = 0; c < this.clouds.length; c++){
+		this.clouds[c].moveCloud(this.roadSize, this.size);
 	}
 }
 

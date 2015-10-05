@@ -33,7 +33,7 @@ div.road{
 	height: @roadWidth;
 	line-height: @roadWidth;
 	overflow: hidden;
-	background: rgba(26, 26, 26, 0.5);
+	background: rgba(56, 56, 56, 1.0);
 	color: white;
 	font-family: @Cabin;
 	text-align: right;
@@ -51,6 +51,7 @@ div.road{
 		font-size: @roadWidth / 2;
 		margin: 0;
 		padding: 0;
+		z-index: 15;
 	}
 
 }
@@ -99,7 +100,9 @@ div.cloud{
 	background-image: url('cloud.png');
 	background-size: @roadWidth auto;
 	background-repeat: no-repeat;
-	.PulsingCloud();
+	//.PulsingCloud();
+	z-index: 15;
+	transition: all 1s linear;
 }
 
 @-webkit-keyframes pulseCloud{

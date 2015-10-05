@@ -19,6 +19,21 @@ function Cloud(x, y, boardID){
 	}
 }
 
+Cloud.prototype.moveCloud = function(magnitude, boardSize){
+	var xRand = Math.random() * magnitude - (magnitude / 2);
+	var yRand = Math.random() * magnitude - (magnitude / 2);
+	if((this.xCoord + (magnitude / 2)) < boardSize && (this.yCoord + (magnitude / 2)) < boardSize){
+		this.xCoord += xRand;
+		this.yCoord += yRand;
+	}
+	if(printed){
+		if(document.getElementById(this.id)){
+			document.getElementById(this.id).style.marginLeft = this.xCoord + 'px';
+			document.getElementById(this.id).style.marginTop = this.yCoord + 'px';
+		}
+	}
+}
+
 Cloud.prototype.toHTML = function(){
 	var html = '';
 	html += '<div id="' + this.id + '" class="cloud" style="';
