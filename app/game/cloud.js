@@ -20,6 +20,7 @@ function Cloud(x, y, boardID){
 }
 
 Cloud.prototype.update = function(magnitude, boardSize){
+	var exists = true;
 	var xRand = Math.random() * magnitude - (magnitude / 2);
 	var yRand = Math.random() * magnitude - (magnitude / 2);
 	var xLo = this.xCoord > (boardSize * 0.5);
@@ -41,6 +42,7 @@ Cloud.prototype.update = function(magnitude, boardSize){
 			document.getElementById('cloudList').innerHTML += '<li>' + this.id + '</li>';
 		}
 		else{
+			exists = false;
 			for(var c = 0; c < cloudIDList.length; c++){
 				if(cloudIDList[c] == this.id){
 					cloudIDList.splice(c, 1);
@@ -50,6 +52,7 @@ Cloud.prototype.update = function(magnitude, boardSize){
 			}
 		}
 	}
+	return exists;
 }
 
 Cloud.prototype.toHTML = function(){

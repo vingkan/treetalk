@@ -39,7 +39,12 @@ Board.prototype.update = function(){
 		this.roads[r].update(this.size, this.roadSize);
 	}
 	for(var c = 0; c < this.clouds.length; c++){
-		this.clouds[c].update(this.roadSize, this.size);
+		var cloudExists = true;
+		cloudExists = this.clouds[c].update(this.roadSize, this.size);
+		if(!cloudExists){
+			this.clouds.splice(c, 1);
+			console.log('removed cloud for array length: ' + this.clouds.length);
+		}
 	}
 }
 
