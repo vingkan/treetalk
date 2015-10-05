@@ -20,6 +20,14 @@ function Tree(data){
 	} || this.coordinates;
 }
 
+function cloudAlert(numberCleaned){
+	document.getElementById('numberCloudsCleaned').innerHTML = numberCleaned;
+	document.getElementById('cleanedCloudsAlert').style.height = '10vh';
+	setTimeout(function(){
+		document.getElementById('cleanedCloudsAlert').style.height = '0vh';
+	}, 1000);
+}
+
 function absorb(sweepIndex){
 	var cloudsCleaned = 0;
 	var sweeper = $('#sweeper' + sweepIndex);
@@ -39,7 +47,7 @@ function absorb(sweepIndex){
 		}
 	}
 	if(cloudsCleaned > 0){
-		alert('You cleaned ' + cloudsCleaned + " clouds!");
+		cloudAlert(cloudsCleaned);
 	}
 }
 

@@ -6,6 +6,7 @@ Board.prototype.roadSize = 40; //Pixels as Double
 Board.prototype.roads = [] //Array of Roads
 Board.prototype.trees = [] //Array of Trees
 Board.prototype.clouds = [] //Array of Clouds
+Board.prototype.cloudTreshold = 50 //Integer
 
 function Board(id){
 	this.id = id || "gameSpace";
@@ -14,10 +15,12 @@ function Board(id){
 	this.roads = [];
 	this.trees = [];
 	this.clouds = [];
+	this.cloudTreshold = 50;
+	this.initialPollution();
 }
 
 Board.prototype.pollute = function(){
-	if(printed && this.clouds.length < 10){
+	if(printed && this.clouds.length < this.cloudTreshold){
 		for(var r = 0; r < this.roads.length; r++){
 			for(var c = 0; c < this.roads[r].cars.length; c++){
 				if(this.roads[r].cars[c].isPolluting()){
@@ -29,6 +32,16 @@ Board.prototype.pollute = function(){
 				}
 			}
 		}
+	}
+}
+
+Board.prototype.initialPollution = function(){
+	for(var p = 0; p < this.cloudTreshold; p++){
+		var xOffSet = this.roadSize;
+		var yOffSet = this.roadSize + (-1 * ((this.size - this.roadSize) / 2));
+		var xRandom = Math.random() * ((this.size) + (yOffSet / 4));
+		var yRandom = Math.random() * ((this.size - this.roadSize));
+		this.clouds.push(new Cloud(xRandom, yRandom, this.id));
 	}
 }
 
