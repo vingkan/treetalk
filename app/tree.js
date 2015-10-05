@@ -32,7 +32,9 @@ function absorb(sweepIndex){
 				var domCloud = document.getElementById('cloud' + c);
 				console.log(domCloud);
 				console.log(domCloud.style);
-				domCloud.style.backgroundColor = 'green';
+				domCloud.style.backgroundImage = "url('style/cleanCloud.png')";
+				/*var parent = document.getElementById(board.id + '-clouds');
+				parent.removeChild(domCloud);*/
 			}
 		}
 		else{

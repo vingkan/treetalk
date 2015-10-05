@@ -108,7 +108,7 @@ div.treeSpace{
 
 	div.treeSlot{
 
-		background-color: @darkTone;
+		background-color: @lightTone;
 		background-image: url('trees/oak.png');
 		background-size: @roadWidth;
 		background-position: 0.25 * @roadWidth;
@@ -123,7 +123,7 @@ div.treeSpace{
 		font-family: @Cabin;
 
 		&:hover{
-			background-color: @lightTone;
+			background-color: @darkTone;
 		}
 
 		transition: all 1s ease;
@@ -143,7 +143,6 @@ div.treeSpace{
 			z-index: 30;
 
 			&:hover{
-				background: @focusTone;
 				width: @roadWidth * 1.0;
 				height:  @roadWidth * 1.0;
 				margin-left: @roadWidth * -0.5;
@@ -156,7 +155,7 @@ div.treeSpace{
 
 		div.sweeper{
 			@sweepLength: @roadWidth * 4;
-			background: orange;
+			background: @darkTone;
 			margin-left: @roadWidth / 2;
 			margin-top: @roadWidth * -1.2;
 			height: @sweepLength;
