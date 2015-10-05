@@ -49,6 +49,10 @@ Board.prototype.print = function(){
 	printed = true;
 }
 
+function fire(object){
+	console.log(object);
+}
+
 Board.prototype.toHTML = function(){
 	html = '';
 	html += '<div class="board">';
@@ -57,7 +61,7 @@ Board.prototype.toHTML = function(){
 	var offsetInterval = this.roadSize * 3;
 	html += '<div id="' + this.id + '-trees" class="treeSpace">';
 	for(var t = 0; t < 9; t++){
-		html += '<div class="treeSlot"><div class="sweeper"></div></div>';
+		html += '<div class="treeSlot"><button onclick="fire(this);">O</button><div class="sweeper"></div></div>';
 	}
 	html += '</div>';
 	html += '<div id="' + this.id + '-clouds" class="cloudSpace">';

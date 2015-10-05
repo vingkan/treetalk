@@ -130,6 +130,14 @@ div.treeSpace{
 
 		transition: all 1s ease;
 
+		button{
+			position: absolute;
+			background: orange;
+			width: @roadWidth / 4;
+			height:  @roadWidth /4;
+			z-index: 60;
+		}
+
 		div.sweeper{
 			@sweepLength: @roadWidth * 4;
 			background: @lightTone;
