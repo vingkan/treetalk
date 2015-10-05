@@ -36,12 +36,12 @@ Cloud.prototype.update = function(roadSize, boardSize){
 		var xHi = this.xCoord < ((boardSize * 0.9) - roadSize);
 		var yLo = this.yCoord > (boardSize * 0.1);
 		var yHi = this.yCoord < ((boardSize * 0.9) - roadSize);
-		if(xLo && yLo && xHi && yHi){
+		/*if(xLo && yLo && xHi && yHi){
 			var direction = Math.random()*2 - 2.0;
 			this.xCoord += xRand * direction;
 			this.yCoord += yRand * direction;
-		}
-		else if(xHi && yHi){
+		}*/
+		if(xHi && yHi){
 			this.xCoord += xRand;
 			this.yCoord += yRand;
 		}
