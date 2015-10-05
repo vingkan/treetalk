@@ -117,7 +117,7 @@ div.treeSpace{
 		width: 1.5 * @roadWidth;
 		height: 1.5 * @roadWidth;
 		line-height: 1.5 * @roadWidth;
-		border-radius: 0.75 * @roadWidth;
+		border-radius: 50%;
 		display: inline-block;
 		text-align: center;
 		font-family: @Cabin;
@@ -129,13 +129,28 @@ div.treeSpace{
 		transition: all 1s ease;
 
 		button{
+
 			position: absolute;
 			outline: none;
 			border: none;
-			background: orange;
-			width: @roadWidth;
-			height:  @roadWidth;
+			background: @lightTone;
+			width: @roadWidth * 0.6;
+			height:  @roadWidth * 0.6;
+			border-radius: 50%;
+			margin-left: @roadWidth * -0.3;
+			margin-top: @roadWidth * 0.45;
 			z-index: 60;
+
+			&:hover{
+				background: @focusTone;
+				width: @roadWidth * 1.0;
+				height:  @roadWidth * 1.0;
+				margin-left: @roadWidth * -0.5;
+				margin-top: @roadWidth * 0.25;
+			}
+
+			transition: all 0.5s ease;
+
 		}
 
 		div.sweeper{

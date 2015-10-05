@@ -20,6 +20,14 @@ function Tree(data){
 	} || this.coordinates;
 }
 
+function absorb(sweepIndex){
+	var sweeper = $('#sweeper' + sweepIndex);
+}
+
+Tree.prototype.toSweeperHTML = function(){
+
+}
+
 Tree.prototype.toWindowHTML = function(){
 	var html = '';
 		html += '<li class="treeInfoWrapper">'
