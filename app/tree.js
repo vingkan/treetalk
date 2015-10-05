@@ -77,14 +77,17 @@ function allowDrop(event){
 	event.preventDefault();
 }
 
-function dragTree(event){
-	event.dataTransfer.setData("text", event.target.id);
+function dragTree(event, treeID){
+	event.dataTransfer.setData("text", treeID);
 }
 
 function dropTree(event){
 	event.preventDefault();
 	var data = event.dataTransfer.getData("text");
-	event.target.appendChild(document.getElementById(data));
+	var treeHTML = '<h1 style="color:white;">' + data + '</h1>';
+	document.getElementById(event.target.id).innerHTML += treeHTML;
+	//event.target.appendChild(treeHTML);
+	plantTree('You planted a new tree!');
 }
 
 function showTree(treeID){
@@ -101,7 +104,7 @@ function plantTree(message){
 
 Tree.prototype.toWindowHTML = function(){
 	var html = '';
-		html += '<li class="treeInfoWrapper" id="li-' + this.id + '" onclick="showTree(&#39;' + this.id + '&#39;);" draggable="true" ondragstart="dragTree(event);">'
+		html += '<li class="treeInfoWrapper" id="li-' + this.id + '" onclick="showTree(&#39;' + this.id + '&#39;);" draggable="true" ondragstart="dragTree(event, &#39;' + this.id + '&#39;);">'
 			html += '<img class="speciesImage" src="style/trees/' + this.getCommonName(false) + '.png">'
 			html += '<div class="treeInfo">' + this.getCommonName(true) + '<br><span class="coords">' + this.formatCoordinates() + '</span></div>'
 		html += '</li>'
