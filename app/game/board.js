@@ -42,9 +42,7 @@ Board.prototype.update = function(){
 		var cloudExists = true;
 		cloudExists = this.clouds[c].update(this.roadSize, this.size);
 		if(!cloudExists){
-			console.log('board.update() ' + c + ' DNE')
-			/*this.clouds.splice(c, 1);
-			console.log('removed cloud for array length: ' + this.clouds.length);*/
+			console.log('board.update() ' + c + ' DNE');
 		}
 	}
 }

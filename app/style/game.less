@@ -156,14 +156,14 @@ div.treeSpace{
 
 		div.sweeper{
 			@sweepLength: @roadWidth * 4;
-			background: @lightTone;
-			opacity: 0.5;
+			background: orange;
 			margin-left: @roadWidth / 2;
 			margin-top: @roadWidth * -1.2;
 			height: @sweepLength;
 			width: @roadWidth / 2;
 			transition: all 2s linear;
 			.RotatingSweeper();
+			z-index: 25;
 		}
 
 	}
@@ -239,6 +239,11 @@ div.statsWindow{
 		width: 30vh;
 	}
 
+	h2{
+		line-height: 4vh;
+		font-size: 4vh;
+	}
+
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>TO-DO
 
 	span.windowLabel{
@@ -283,6 +288,8 @@ ul#nearbyTreesWindow{
 		width: 22vh;
 		background: transparent;
 		font-family: @Cabin;
+		line-height: 4vh;
+		font-size: 3vh;
 		text-align: center;
 	}
 
