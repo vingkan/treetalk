@@ -30,8 +30,8 @@ Cloud.prototype.update = function(roadSize, boardSize){
 	if(printed){
 		var magnitude = roadSize * 2;
 		var exists = true;
-		var xRand = Math.random() * (magnitude / 2);
-		var yRand = Math.random() * (magnitude / 2);
+		var xRand = Math.random() * magnitude - (magnitude / 2);
+		var yRand = Math.random() * magnitude - (magnitude / 2);
 		var xLo = this.xCoord > (boardSize * 0.1);
 		var xHi = this.xCoord < ((boardSize * 0.9) - roadSize);
 		var yLo = this.yCoord > (boardSize * 0.1);
