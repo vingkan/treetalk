@@ -23,7 +23,7 @@ function Tree(data){
 Tree.prototype.toWindowHTML = function(){
 	var html = '';
 		html += '<li class="treeInfoWrapper">'
-			html += '<img class="speciesImage" src="style/trees/oak.png">'
+			html += '<img class="speciesImage" src="style/trees/' + this.getCommonName(false) + '.png">'
 			html += '<div class="treeInfo">' + this.getCommonName(true) + '<br><span class="coords">' + this.formatCoordinates() + '</span></div>'
 		html += '</li>'
 	return html;
