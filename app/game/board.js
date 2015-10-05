@@ -39,7 +39,7 @@ Board.prototype.update = function(){
 		this.roads[r].update(this.size, this.roadSize);
 	}
 	for(var c = 0; c < this.clouds.length; c++){
-		this.clouds[c].moveCloud(this.roadSize, this.size);
+		this.clouds[c].update(this.roadSize, this.size);
 	}
 }
 

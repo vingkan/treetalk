@@ -19,7 +19,7 @@ function Cloud(x, y, boardID){
 	}
 }
 
-Cloud.prototype.moveCloud = function(magnitude, boardSize){
+Cloud.prototype.update = function(magnitude, boardSize){
 	var xRand = Math.random() * magnitude - (magnitude / 2);
 	var yRand = Math.random() * magnitude - (magnitude / 2);
 	var xLo = this.xCoord > (boardSize * 0.5);
