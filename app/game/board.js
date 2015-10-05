@@ -17,7 +17,7 @@ function Board(id){
 }
 
 Board.prototype.pollute = function(){
-	if(this.clouds.length < 500){
+	if(this.clouds.length < 10){
 		for(var r = 0; r < this.roads.length; r++){
 			for(var c = 0; c < this.roads[r].cars.length; c++){
 				if(this.roads[r].cars[c].isPolluting()){
@@ -42,8 +42,9 @@ Board.prototype.update = function(){
 		var cloudExists = true;
 		cloudExists = this.clouds[c].update(this.roadSize, this.size);
 		if(!cloudExists){
-			this.clouds.splice(c, 1);
-			console.log('removed cloud for array length: ' + this.clouds.length);
+			console.log('board.update() ' + c + ' DNE')
+			/*this.clouds.splice(c, 1);
+			console.log('removed cloud for array length: ' + this.clouds.length);*/
 		}
 	}
 }

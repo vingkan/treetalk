@@ -21,7 +21,7 @@ function Cloud(x, y, boardID){
 
 Cloud.prototype.update = function(magnitude, boardSize){
 	var exists = true;
-	var xRand = Math.random() * magnitude - (magnitude / 2);
+	/*var xRand = Math.random() * magnitude - (magnitude / 2);
 	var yRand = Math.random() * magnitude - (magnitude / 2);
 	var xLo = this.xCoord > (boardSize * 0.5);
 	var xHi = this.xCoord < (boardSize * 0.5);
@@ -34,22 +34,26 @@ Cloud.prototype.update = function(magnitude, boardSize){
 	else if(xLo && yLo){
 		this.xCoord -= xRand;
 		this.yCoord -= yRand;
-	}
+	}*/
 	if(printed){
 		if(document.getElementById(this.id)){
+
+			//this.xCoord += 10;
+			this.yCoord += 10;
 			document.getElementById(this.id).style.marginLeft = this.xCoord + 'px';
 			document.getElementById(this.id).style.marginTop = this.yCoord + 'px';
 			document.getElementById('cloudList').innerHTML += '<li>' + this.id + '</li>';
 		}
 		else{
 			exists = false;
-			for(var c = 0; c < cloudIDList.length; c++){
+			console.log('cloud.update() ' + this.id + " DNE")
+			/*for(var c = 0; c < cloudIDList.length; c++){
 				if(cloudIDList[c] == this.id){
 					cloudIDList.splice(c, 1);
 					console.log('removed ' + this.id + " at " + c + ", leaving array size: " + cloudIDList.length);
 					break;
 				}
-			}
+			}*/
 		}
 	}
 	return exists;
