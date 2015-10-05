@@ -29,9 +29,10 @@ function absorb(sweepIndex){
 			//console.log(currentCloud);
 			if(collision(sweeper, currentCloud)){
 				console.log('goteeeeem: ' + currentCloud + " ha");
-				console.log(currentCloud);
-				console.log(currentCloud.style);
-				currentCloud.style.backgroundColor = 'green';
+				var domCloud = document.getElementById('cloud' + c);
+				console.log(domCloud);
+				console.log(domCloud.style);
+				domCloud.style.backgroundColor = 'green';
 			}
 		}
 		else{
