@@ -17,7 +17,7 @@ function Board(id){
 }
 
 Board.prototype.pollute = function(){
-	if(this.clouds.length < 10){
+	if(printed && this.clouds.length < 10){
 		for(var r = 0; r < this.roads.length; r++){
 			for(var c = 0; c < this.roads[r].cars.length; c++){
 				if(this.roads[r].cars[c].isPolluting()){
@@ -68,6 +68,9 @@ Board.prototype.toHTML = function(){
 	}
 	html += '</div>';
 	html += '<div id="' + this.id + '-clouds" class="cloudSpace">';
+	for(var c = 0; c < this.clouds.length; c++){
+		html += this.clouds[c].toHTML();
+	}
 	html += '</div>';
 	for(var r = 0; r < this.roads.length; r++){
 		if(this.roads[r].vertical){

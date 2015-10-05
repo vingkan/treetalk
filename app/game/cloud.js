@@ -16,6 +16,7 @@ function Cloud(x, y, boardID){
 	this.yCoord = y || 0;
 	if(printed){
 		document.getElementById(boardID + '-clouds').innerHTML += this.toHTML();
+		console.log('printed cloud ' + this.id)
 	}
 }
 
@@ -39,7 +40,10 @@ Cloud.prototype.update = function(magnitude, boardSize){
 		if(document.getElementById(this.id)){
 
 			//this.xCoord += 10;
-			this.yCoord += 10;
+			if(this.yCoord < (boardSize * 0.9)){
+				this.yCoord += 10;	
+			}
+			
 			document.getElementById(this.id).style.marginLeft = this.xCoord + 'px';
 			document.getElementById(this.id).style.marginTop = this.yCoord + 'px';
 			document.getElementById('cloudList').innerHTML += '<li>' + this.id + '</li>';
