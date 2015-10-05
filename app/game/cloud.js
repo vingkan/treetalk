@@ -19,17 +19,29 @@ function Cloud(x, y, boardID){
 	}
 }
 
+/*function checkNewPosition(initial, increment, limit){
+	var 
+	if((initial + increment) > limit){
+
+	}
+}*/
+
 Cloud.prototype.update = function(roadSize, boardSize){
 	if(printed){
 		var magnitude = roadSize * 2;
 		var exists = true;
-		var xRand = Math.random() * magnitude - (magnitude / 2);
-		var yRand = Math.random() * magnitude - (magnitude / 2);
+		var xRand = Math.random() * (magnitude / 2);
+		var yRand = Math.random() * (magnitude / 2);
 		var xLo = this.xCoord > (boardSize * 0.1);
-		var xHi = this.xCoord < (boardSize * 0.9);
+		var xHi = this.xCoord < ((boardSize * 0.9) - roadSize);
 		var yLo = this.yCoord > (boardSize * 0.1);
-		var yHi = this.yCoord < (boardSize * 0.9);
-		if(xHi && yHi){
+		var yHi = this.yCoord < ((boardSize * 0.9) - roadSize);
+		if(xLo && yLo && xHi && yHi){
+			var direction = Math.random()*2 - 2.0;
+			this.xCoord += xRand * direction;
+			this.yCoord += yRand * direction;
+		}
+		else if(xHi && yHi){
 			this.xCoord += xRand;
 			this.yCoord += yRand;
 		}
