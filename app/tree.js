@@ -22,6 +22,16 @@ function Tree(data){
 
 function absorb(sweepIndex){
 	var sweeper = $('#sweeper' + sweepIndex);
+	for(var c = 0; c < cloudIDList.length; c++){
+		if($('#' + cloudIDList[c])){
+			var currentCloud = $('#' + cloudIDList[c]);
+			console.log(sweeper);
+			console.log(currentCloud);
+			/*if(collision(sweeper, currentCloud)){
+				console.log('goteeeeem: ' + currentCloud + " ha");
+			}*/
+		}
+	}
 }
 
 Tree.prototype.toSweeperHTML = function(){

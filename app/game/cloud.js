@@ -38,6 +38,16 @@ Cloud.prototype.moveCloud = function(magnitude, boardSize){
 		if(document.getElementById(this.id)){
 			document.getElementById(this.id).style.marginLeft = this.xCoord + 'px';
 			document.getElementById(this.id).style.marginTop = this.yCoord + 'px';
+			document.getElementById('cloudList').innerHTML += '<li>' + this.id + '</li>';
+		}
+		else{
+			for(var c = 0; c < cloudIDList.length; c++){
+				if(cloudIDList[c] == this.id){
+					cloudIDList.splice(c, 1);
+					console.log('removed ' + this.id + " at " + c + ", leaving array size: " + cloudIDList.length);
+					break;
+				}
+			}
 		}
 	}
 }
