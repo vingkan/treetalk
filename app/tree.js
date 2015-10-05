@@ -44,7 +44,13 @@ function absorb(sweepIndex){
 }
 
 Tree.prototype.toSweeperHTML = function(){
-
+	var t = 0;
+	var html = '';
+	html += '<div class="treeSlot">';
+		html +='<button onclick="absorb(' + t + ');">O</button>';
+		html += '<div id="sweeper' + t + '" class="sweeper"></div>';
+	html += '</div>';
+	return html;
 }
 
 Tree.prototype.toWindowHTML = function(){
