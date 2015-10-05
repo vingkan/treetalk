@@ -43,6 +43,10 @@
 			<h3><span id="plantTreeEvent">You can plant a tree here.</span></h3>
 		</div>
 
+		<div class="alertBox" id="instructionsAlert">
+			<h3><span id="instructions">You can plant a tree here.</span></h3>
+		</div>
+
 
 
 		<!-- APP SCRIPTS -->
@@ -99,6 +103,8 @@
 			setInterval(function(){
 				board.update()
 			}, 1000);
+
+			instructionsSequence();
 
 
 			function addNearbyTreesToWindow(){
