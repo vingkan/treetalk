@@ -16,7 +16,6 @@ function Cloud(x, y, boardID){
 	this.yCoord = y || 0;
 	if(printed){
 		document.getElementById(boardID + '-clouds').innerHTML += this.toHTML();
-		console.log('printed cloud ' + this.id)
 	}
 }
 
@@ -26,10 +25,10 @@ Cloud.prototype.update = function(roadSize, boardSize){
 		var exists = true;
 		var xRand = Math.random() * magnitude - (magnitude / 2);
 		var yRand = Math.random() * magnitude - (magnitude / 2);
-		var xLo = true//this.xCoord > (boardSize * 0.5);
-		var xHi = true//this.xCoord < (boardSize * 0.5);
-		var yLo = true//this.yCoord > (boardSize * 0.5);
-		var yHi = true//this.yCoord < (boardSize * 0.5);
+		var xLo = this.xCoord > (boardSize * 0.1);
+		var xHi = this.xCoord < (boardSize * 0.9);
+		var yLo = this.yCoord > (boardSize * 0.1);
+		var yHi = this.yCoord < (boardSize * 0.9);
 		if(xHi && yHi){
 			this.xCoord += xRand;
 			this.yCoord += yRand;

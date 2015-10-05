@@ -21,18 +21,15 @@ function Tree(data){
 }
 
 function absorb(sweepIndex){
+	var cloudsCleaned = 0;
 	var sweeper = $('#sweeper' + sweepIndex);
 	for(var c = 0; c < cloudIDList.length; c++){
 		if($('#' + cloudIDList[c])){
 			var currentCloud = $('#' + cloudIDList[c]);
-			//console.log(sweeper);
-			//console.log(currentCloud);
 			if(collision(sweeper, currentCloud)){
-				console.log('goteeeeem: ' + currentCloud + " ha");
 				var domCloud = document.getElementById('cloud' + c);
-				console.log(domCloud);
-				console.log(domCloud.style);
 				domCloud.style.backgroundImage = "url('style/cleanCloud.png')";
+				cloudsCleaned++;
 				/*var parent = document.getElementById(board.id + '-clouds');
 				parent.removeChild(domCloud);*/
 			}
@@ -40,6 +37,9 @@ function absorb(sweepIndex){
 		else{
 			console.log('error')
 		}
+	}
+	if(cloudsCleaned > 0){
+		alert('You cleaned ' + cloudsCleaned + " clouds!");
 	}
 }
 
