@@ -145,11 +145,23 @@ div.treeSpace{
 			margin-top: @roadWidth * 0.45;
 			z-index: 30;
 
+			img{
+				width: @roadWidth * 0.5;
+				margin-left: @roadWidth * -0.1;
+				transition: all 0.5s ease;
+			}
+
 			&:hover{
+
 				width: @roadWidth * 1.0;
 				height:  @roadWidth * 1.0;
 				margin-left: @roadWidth * -0.5;
 				margin-top: @roadWidth * 0.25;
+
+				img{
+					margin-left: @roadWidth * 0.0;
+				}
+
 			}
 
 			transition: all 0.5s ease;
