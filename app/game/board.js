@@ -81,7 +81,6 @@ Board.prototype.toHTML = function(){
 }
 
 Board.prototype.addRoads = function(roadsArray){
-	console.log("a")
 	for(var r = 0; r < roadsArray.length; r++){
 		this.roads.push(roadsArray[r]);
 	}

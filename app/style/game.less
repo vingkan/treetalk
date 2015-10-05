@@ -102,7 +102,6 @@ div.treeSpace{
 	overflow: hidden;
 	/*background: purple;
 	opacity: 0.75;*/
-	z-index: 10;
 }
 
 div.treeSpace{
@@ -114,7 +113,7 @@ div.treeSpace{
 		background-size: @roadWidth;
 		background-position: 0.25 * @roadWidth;
 		background-repeat: no-repeat;
-		margin: (@roadWidth * 0.7125) (@roadWidth * 0.75);
+		margin: (@roadWidth * 0.7325) (@roadWidth * 0.75);
 		width: 1.5 * @roadWidth;
 		height: 1.5 * @roadWidth;
 		line-height: 1.5 * @roadWidth;
@@ -131,9 +130,11 @@ div.treeSpace{
 
 		button{
 			position: absolute;
+			outline: none;
+			border: none;
 			background: orange;
-			width: @roadWidth / 4;
-			height:  @roadWidth /4;
+			width: @roadWidth;
+			height:  @roadWidth;
 			z-index: 60;
 		}
 
@@ -220,6 +221,13 @@ div.statsWindow{
 
 	&:hover{
 		width: 30vh;
+	}
+
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>TO-DO
+
+	span.windowLabel{
+		position: absolute;
+		display: none;
 	}
 
 	button{
@@ -309,4 +317,12 @@ ul#nearbyTreesWindow{
 
 	}
 
+}
+
+div#treesWindow{
+	left: 5vw;
+}
+
+div#scoreWindow{
+	border-color: @darkTone;
 }
