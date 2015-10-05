@@ -93,6 +93,13 @@ div.car{
 	animation: moveCar @speed linear infinite;
 }
 
+div.treeSpace, div.cloudSpace{
+	position: absolute;
+	height: @boardSize;
+	width: @boardSize;
+	overflow: hidden;
+}
+
 div.cloud{
 	position: absolute;
 	width: @roadWidth;
@@ -102,7 +109,7 @@ div.cloud{
 	background-repeat: no-repeat;
 	//.PulsingCloud();
 	z-index: 15;
-	transition: all 1s linear;
+	transition: all 0.1s ease;
 }
 
 @-webkit-keyframes pulseCloud{
@@ -132,7 +139,7 @@ div.statsWindow{
 	left: 0;
 	height: 100vh;
 	width: 0%;
-	background: @darkTone;
+	background: @focusTone;
 	color: white;
 	border-right: 5vw solid @lightTone;
 	overflow-y: scroll;

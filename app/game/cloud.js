@@ -22,9 +22,17 @@ function Cloud(x, y, boardID){
 Cloud.prototype.moveCloud = function(magnitude, boardSize){
 	var xRand = Math.random() * magnitude - (magnitude / 2);
 	var yRand = Math.random() * magnitude - (magnitude / 2);
-	if((this.xCoord + (magnitude / 2)) < boardSize && (this.yCoord + (magnitude / 2)) < boardSize){
+	var xLo = this.xCoord > (boardSize * 0.5);
+	var xHi = this.xCoord < (boardSize * 0.5);
+	var yLo = this.yCoord > (boardSize * 0.5);
+	var yHi = this.yCoord < (boardSize * 0.5);
+	if(xHi && yHi){
 		this.xCoord += xRand;
 		this.yCoord += yRand;
+	}
+	else if(xLo && yLo){
+		this.xCoord -= xRand;
+		this.yCoord -= yRand;
 	}
 	if(printed){
 		if(document.getElementById(this.id)){
