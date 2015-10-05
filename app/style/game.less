@@ -128,10 +128,10 @@ div.statsWindow{
 	top: 0;
 	left: 0;
 	height: 100vh;
-	width: 0;
-	background: @charcoal;
+	width: 18%;
+	background: @darkTone;
 	color: white;
-	overflow: hidden;
+	overflow-x: hidden;
 	border-right: 2vw solid @lightTone;
 
 	&:hover{
@@ -149,6 +149,7 @@ ul#nearbyTreesWindow{
 		background: @focusTone;
 		font-family: @Cabin;
 		padding: 1vw;
+		margin-bottom: 2vh;
 
 		img, div.treeInfo{
 			display: inline-block;
@@ -160,6 +161,7 @@ ul#nearbyTreesWindow{
 
 		div.treeInfo{
 			background: orange;
+			overflow: hidden;
 		}
 
 	}

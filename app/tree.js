@@ -20,6 +20,20 @@ function Tree(data){
 	} || this.coordinates;
 }
 
+Tree.prototype.toWindowHTML = function(){
+	var html = '';
+		html += '<li class="treeInfoWrapper">'
+			html += '<img class="speciesImage" src="style/trees/oak.png">'
+			html += '<div class="treeInfo">' + this.species + '<br>' + this.name + '</div>'
+		html += '</li>'
+	return html;
+}
+
+Tree.prototype.getCommonName = function(){
+	var nameSplit = this.name.split(",");
+	return nameSplit[0];
+}
+
 Tree.prototype.toString = function(){
 	var plural = "";
 	if(this.trunks > 1){

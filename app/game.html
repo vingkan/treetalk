@@ -22,6 +22,7 @@
 		<div class="statsWindow">
 			<h2>Nearby Trees</h2>
 			<ul id="nearbyTreesWindow">
+				<button onclick="addNearbyTreesToWindow();">Find Trees!</button>
 				<li class="treeInfoWrapper">
 					<img class="speciesImage" src="style/trees/oak.png">
 					<div class="treeInfo">Oak Tree</div>
@@ -85,6 +86,24 @@
 				board.update()
 			}, 1000);
 
+
+			function addNearbyTreesToWindow(){
+				function listNearbyTrees(){
+					var results = storage.get(callId);
+					var output = document.getElementById('nearbyTreesWindow');
+					output.innerHTML = "";
+					for(var r = 0; r < results.length; r++){
+						output.innerHTML += results[r].toWindowHTML();
+					}
+				}
+				var callId = 'nearby_trees';
+				var limit = 10;
+				var radius = 1000000000; //in meters
+				getTrees(callId, {
+					'$where': 'within_circle(location, ' + userLocation.latitude
+						+ ', ' + userLocation.longitude + ', ' + radius + ')'
+				}, limit, listNearbyTrees);
+			}
 
 		</script>
 		
