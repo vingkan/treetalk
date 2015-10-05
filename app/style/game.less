@@ -128,14 +128,40 @@ div.statsWindow{
 	top: 0;
 	left: 0;
 	height: 100vh;
-	width: 18%;
+	width: 0%;
 	background: @darkTone;
 	color: white;
-	overflow-x: hidden;
-	border-right: 2vw solid @lightTone;
+	border-right: 5vw solid @lightTone;
+	overflow-y: scroll;
 
 	&:hover{
-		width: 20%;
+		width: 30vh;
+	}
+
+	button{
+
+		background: @lightTone;
+		padding: 0;
+		width: 100%;
+		height: 10vh;
+		line-height: 10vh;
+		font-size: 4vh;
+		margin-bottom: 2vh;
+		font-family: @Cabin;
+		font-weight: bold;
+		text-align: center;
+		color: white;
+		outline: none;
+		border: none;
+
+		&:hover{
+			background: @charcoal;
+			height: 20vh;
+			line-height: 20vh;
+		}
+
+		transition: all 0.5s ease;
+
 	}
 
 	transition: all 0.5s ease;
@@ -144,24 +170,44 @@ div.statsWindow{
 
 ul#nearbyTreesWindow{
 
+	li.info{
+		background: transparent;
+		text-align: center;
+	}
+
 	li{
 
-		background: @focusTone;
+		background: @lightTone;
 		font-family: @Cabin;
 		padding: 1vw;
-		margin-bottom: 2vh;
+		margin: 2vh auto;
+		height: 18vh;
+		width: 18vh;
+		border-radius: 3vh;
 
 		img, div.treeInfo{
-			display: inline-block;
+			display: block;
 		}
 
 		img{
+			margin: auto auto;
 			height: 10vh;
 		}
 
 		div.treeInfo{
-			background: orange;
+
+			margin-top: 1vh;
+			background: transparent;
+			font-weight: bold;
+			text-align: center;
 			overflow: hidden;
+
+			span.coords{
+				color: @darkTone;
+				font-weight: normal;
+				font-size: 55%;
+			}
+
 		}
 
 	}

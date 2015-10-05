@@ -17,16 +17,14 @@
 	</head>
 	<body>
 
+		<!-- <h1>Play The Game</h1> -->
 		<div id="game1" class="gameContainer"></div>
 
 		<div class="statsWindow">
-			<h2>Nearby Trees</h2>
+			<h2>Find Nearby Trees</h2>
+			<button onclick="addNearbyTreesToWindow();">Go!</button>
 			<ul id="nearbyTreesWindow">
-				<button onclick="addNearbyTreesToWindow();">Find Trees!</button>
-				<li class="treeInfoWrapper">
-					<img class="speciesImage" src="style/trees/oak.png">
-					<div class="treeInfo">Oak Tree</div>
-				</li>
+				<li class="info">Click to see which trees are near you. You can use them to reduce the CO2 emissions!</li>
 			</ul>
 		</div>
 

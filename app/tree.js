@@ -24,14 +24,22 @@ Tree.prototype.toWindowHTML = function(){
 	var html = '';
 		html += '<li class="treeInfoWrapper">'
 			html += '<img class="speciesImage" src="style/trees/oak.png">'
-			html += '<div class="treeInfo">' + this.species + '<br>' + this.name + '</div>'
+			html += '<div class="treeInfo">' + this.getCommonName(true) + '<br><span class="coords">' + this.formatCoordinates() + '</span></div>'
 		html += '</li>'
 	return html;
 }
 
-Tree.prototype.getCommonName = function(){
+Tree.prototype.getCommonName = function(formatted){
 	var nameSplit = this.name.split(",");
-	return nameSplit[0];
+	var commonName = nameSplit[0];
+	if(formatted){
+		commonName = commonName.charAt(0).toUpperCase() + commonName.substr(1);
+	}
+	return commonName;
+}
+
+Tree.prototype.formatCoordinates = function(){
+	return '(' + this.coordinates.latitude.toFixed(3) + ', ' + this.coordinates.longitude.toFixed(3) + ')';
 }
 
 Tree.prototype.toString = function(){
