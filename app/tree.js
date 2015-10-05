@@ -54,11 +54,19 @@ function absorb(sweepIndex){
 Tree.prototype.toSweeperHTML = function(){
 	var t = 0;
 	var html = '';
-	html += '<div class="treeSlot">';
+	//html += '<div class="treeSlot">';
 		html +='<button onclick="absorb(' + t + ');">O</button>';
 		html += '<div id="sweeper' + t + '" class="sweeper"></div>';
-	html += '</div>';
+	//html += '</div>';
 	return html;
+}
+
+function plantTree(numberCleaned){
+	document.getElementById('plantTreeEvent').innerHTML = "can plant";
+	document.getElementById('plantTreeAlert').style.height = '10vh';
+	setTimeout(function(){
+		document.getElementById('plantTreeAlert').style.height = '0vh';
+	}, 3000);
 }
 
 Tree.prototype.toWindowHTML = function(){
