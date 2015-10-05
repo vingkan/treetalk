@@ -73,6 +73,20 @@ Tree.prototype.toSweeperHTML = function(){
 	return html;
 }
 
+function allowDrop(event){
+	event.preventDefault();
+}
+
+function dragTree(event){
+	event.dataTransfer.setData("text", event.target.id);
+}
+
+function dropTree(event){
+	event.preventDefault();
+	var data = event.dataTransfer.getData("text");
+	event.target.appendChild(document.getElementById(data));
+}
+
 function showTree(treeID){
 	plantTree('You can plant this tree in an open site!')
 }
@@ -87,7 +101,7 @@ function plantTree(message){
 
 Tree.prototype.toWindowHTML = function(){
 	var html = '';
-		html += '<li class="treeInfoWrapper" onclick="showTree(&#39;' + this.id + '&#39;);" draggable="true" ondragstart="dragTree(event);">'
+		html += '<li class="treeInfoWrapper" id="li-' + this.id + '" onclick="showTree(&#39;' + this.id + '&#39;);" draggable="true" ondragstart="dragTree(event);">'
 			html += '<img class="speciesImage" src="style/trees/' + this.getCommonName(false) + '.png">'
 			html += '<div class="treeInfo">' + this.getCommonName(true) + '<br><span class="coords">' + this.formatCoordinates() + '</span></div>'
 		html += '</li>'

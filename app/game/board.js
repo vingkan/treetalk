@@ -75,7 +75,7 @@ Board.prototype.toHTML = function(){
 	var offsetInterval = this.roadSize * 3;
 	html += '<div id="' + this.id + '-trees" class="treeSpace">';
 	for(var t = 0; t < 9; t++){
-		html += '<div class="treeSlot" id="treeSlot' + t + '" onclick="plantTree(&#39;Tree planting site #' + t + '&#39;);">';
+		html += '<div class="treeSlot" id="treeSlot' + t + '" onclick="plantTree(&#39;Tree planting site #' + t + '&#39;);" ondrop="dropTree(event);" ondragover="allowDrop(event);">';
 		//html += '<button onclick="absorb(' + t + ');">O</button><div id="sweeper' + t + '" class="sweeper"></div>';
 		html += '</div>';
 	}
