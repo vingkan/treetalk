@@ -56,6 +56,9 @@ Board.prototype.toHTML = function(){
 	var yOffSet = this.roadSize + (-1 * ((this.size - this.roadSize) / 2));
 	var offsetInterval = this.roadSize * 3;
 	html += '<div id="' + this.id + '-trees" class="treeSpace">';
+	for(var t = 0; t < 9; t++){
+		html += '<div class="treeSlot"></div>';
+	}
 	html += '</div>';
 	html += '<div id="' + this.id + '-clouds" class="cloudSpace">';
 	html += '</div>';
