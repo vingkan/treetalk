@@ -1,3 +1,12 @@
+var treeIDList = [];
+
+function newTreeID(){
+	var newID = "tree" + treeIDList.length;
+	treeIDList.push(newID);
+	return newID;
+}
+
+Tree.prototype.id = ""; //String
 Tree.prototype.species = ""; //String
 Tree.prototype.name = ""; //String
 Tree.prototype.diameter = 0; //Integer
@@ -9,6 +18,7 @@ Tree.prototype.coordinates = {
 }; //Object of Doubles/Floats
 
 function Tree(data){
+	this.id = newTreeID();
 	this.species = data['tree_species'] || this.species;
 	this.name = data['common_name'] || this.name;
 	this.diameter = parseInt(data['diameter_at_breast_height'], 10) || this.diameter;
@@ -55,14 +65,20 @@ Tree.prototype.toSweeperHTML = function(){
 	var t = 0;
 	var html = '';
 	//html += '<div class="treeSlot">';
-		html +='<button onclick="absorb(' + t + ');">O</button>';
+		html +='<button onclick="absorb(' + t + ');">';
+		html += '<img class="speciesImage" src="style/trees/' + this.getCommonName(false) + '.png">'
+		html += '</button>';
 		html += '<div id="sweeper' + t + '" class="sweeper"></div>';
 	//html += '</div>';
 	return html;
 }
 
-function plantTree(numberCleaned){
-	document.getElementById('plantTreeEvent').innerHTML = "can plant";
+function showTree(treeID){
+	plantTree('You can plant this tree in an open site!')
+}
+
+function plantTree(message){
+	document.getElementById('plantTreeEvent').innerHTML = message;
 	document.getElementById('plantTreeAlert').style.height = '10vh';
 	setTimeout(function(){
 		document.getElementById('plantTreeAlert').style.height = '0vh';
@@ -71,7 +87,7 @@ function plantTree(numberCleaned){
 
 Tree.prototype.toWindowHTML = function(){
 	var html = '';
-		html += '<li class="treeInfoWrapper">'
+		html += '<li class="treeInfoWrapper" onclick="showTree(&#39;' + this.id + '&#39;);" draggable="true" ondragstart="dragTree(event);">'
 			html += '<img class="speciesImage" src="style/trees/' + this.getCommonName(false) + '.png">'
 			html += '<div class="treeInfo">' + this.getCommonName(true) + '<br><span class="coords">' + this.formatCoordinates() + '</span></div>'
 		html += '</li>'
