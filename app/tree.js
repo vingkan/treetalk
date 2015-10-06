@@ -94,11 +94,17 @@ function dropTree(event){
 }
 
 function showTree(treeID){
+	board.planting = true;
+	board.selectedTree = treeID;
 	plantTree('You can plant this tree in an open site!')
 }
 
-function plantTree(message){
-	document.getElementById('plantTreeEvent').innerHTML = message;
+function plantTree(plantIndex){
+	if(board.planting){
+		document.getElementById('treeSlot' + plantIndex).innerHTML += 
+		board.planting = false;
+	}
+	document.getElementById('plantTreeEvent').innerHTML = "This is tree planting site #" + plantIndex + ".";
 	document.getElementById('plantTreeAlert').style.height = '10vh';
 	setTimeout(function(){
 		document.getElementById('plantTreeAlert').style.height = '0vh';
