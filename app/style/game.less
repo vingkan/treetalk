@@ -320,12 +320,23 @@ div#menuBubble{
 			background: transparent;
 			line-height: 2.5vw;
 			font-size: 2vw;
-			padding-top: 1vw;
+			padding: 1vw;
 			padding-bottom: 1vw;
 			//margin-bottom: 1vw;
 
 			&:hover{
 				background: @friendlyOrange;
+			}
+
+			&:first-child{
+			
+				font-style: italic;
+				font-size: 1.75vw;
+			
+				&:hover{
+					background: @charcoal;
+				}
+			
 			}
 
 			transition: all 0.5s ease;

@@ -21,11 +21,12 @@
 	<body>
 
 		<!-- <h1>Play The Game</h1> -->
-		<div id="game1" class="gameContainer"></div>
+		<div id="game1" onclick="closeAllWindows();" class="gameContainer"></div>
 
 		<div id="menuBubble">
 			<span>&#8801;</span>
 			<ul id="menuBarList">
+				<li>Click the game board to exit a menu.</li>
 				<li onclick="instructionsSequence();">Instructions</li>
 				<li onclick="toggleMenu('scoreWindow');">Game Scores</li>
 				<li onclick="toggleMenu('treesWindow');">Nearby Trees</li>
@@ -120,6 +121,7 @@
 					var results = storage.get(callId);
 					var output = document.getElementById('nearbyTreesWindow');
 					output.innerHTML = "";
+					output.innerHTML += '<li class="info">To plant a tree, click on it, then click on a circular planting space on the game board.</li>'
 					for(var r = 0; r < results.length; r++){
 						output.innerHTML += results[r].toWindowHTML();
 					}

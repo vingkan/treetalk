@@ -35,11 +35,15 @@ function instructionsSequence(){
 	}, instructionsAlert("Welcome to Tree Talk: The Game!", 2000))
 }
 
-function toggleMenu(menuID){
+function closeAllWindows(){
 	var windows = document.getElementsByClassName('statsWindow');
 	for(var w = 0; w < windows.length; w++){
 		windows[w].style.width = '0';
 	}
+}
+
+function toggleMenu(menuID){
+	closeAllWindows();
 	if(document.getElementById(menuID).style.width == '20vw'){
 		document.getElementById(menuID).style.width = '0';
 	}
