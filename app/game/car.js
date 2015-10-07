@@ -22,7 +22,7 @@ function Car(name){
 }
 
 Car.prototype.isPolluting = function(){
-	var polluting = false;
+	var polluting = true;
 	if(Math.random() > 0.5 && this.position < this.boardSize){
 		polluting = true;
 	}
@@ -32,16 +32,18 @@ Car.prototype.isPolluting = function(){
 Car.prototype.pollute = function(data){
 	var xCar = 0;
 	var yCar = 0;
+	var text = this.id;
 	if(data.verticalRoad){
-		yCar = this.position;
-		xCar = data.roadOffset;
+		xCar = 0//data.roadOffset + (this.boardSize/2);
+		yCar = 0//this.boardSize - this.position;
 	}
 	else{
 		xCar = this.position;
-		yCar = data.roadOffset;
+		yCar = data.roadOffset * 0.65;
+		text += '-x';
 	}
-	var text = this.id;
-	board.clouds.push(new Cloud(0, yCar, data.cloudID, text));
+	new Cloud(xCar, yCar, data.cloudID, text)
+	//board.clouds.push();
 }
 
 Car.prototype.update = function(boardSize, roadSize, increment){

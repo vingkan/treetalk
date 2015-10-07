@@ -18,7 +18,7 @@ function Board(id){
 	this.roads = [];
 	this.trees = [];
 	this.clouds = [];
-	this.cloudTreshold = 5;
+	this.cloudTreshold = 8;
 	this.initialPollution();
 }
 
@@ -27,6 +27,7 @@ Board.prototype.pollute = function(){
 		for(var r = 0; r < this.roads.length; r++){
 			for(var c = 0; c < this.roads[r].cars.length; c++){
 				if(this.roads[r].cars[c].isPolluting()){
+					console.log(this.clouds.length)
 					this.roads[r].cars[c].pollute({
 						'cloudID': this.id,
 						'verticalRoad': this.roads[r].vertical,

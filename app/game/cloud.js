@@ -19,7 +19,7 @@ function Cloud(x, y, boardID, text){
 	console.log('new cloud: ' + this.id + " at (" + this.xCoord + ", " + this.yCoord + "):");
 	if(printed){
 		document.getElementById(boardID + '-clouds').innerHTML += this.toHTML();
-		//board.clouds.push(this);
+		board.clouds.push(this);
 	}
 }
 
