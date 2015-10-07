@@ -9,14 +9,17 @@ function newCloudID(){
 Cloud.prototype.id = ""; //String
 Cloud.prototype.xCoord = 0; //Double
 Cloud.prototype.yCoord = 0; //Double
+Cloud.prototype.text = 'ins'; //String
 
-function Cloud(x, y, boardID){
+function Cloud(x, y, boardID, text){
 	this.id = newCloudID();
 	this.xCoord = x || 0;
 	this.yCoord = y || 0;
+	this.text = text || 'null';
 	console.log('new cloud: ' + this.id + " at (" + this.xCoord + ", " + this.yCoord + "):");
 	if(printed){
 		document.getElementById(boardID + '-clouds').innerHTML += this.toHTML();
+		//board.clouds.push(this);
 	}
 }
 
@@ -61,7 +64,7 @@ Cloud.prototype.toHTML = function(){
 	var html = '';
 	html += '<div id="' + this.id + '" class="cloud" style="';
 	html += 'margin-left:' + this.xCoord + 'px;margin-top:' + this.yCoord + 'px;">';
-	html += '</div>';
+	html += this.text + '</div>';
 	return html;
 }
 

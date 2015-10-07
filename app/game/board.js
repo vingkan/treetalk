@@ -27,8 +27,11 @@ Board.prototype.pollute = function(){
 		for(var r = 0; r < this.roads.length; r++){
 			for(var c = 0; c < this.roads[r].cars.length; c++){
 				if(this.roads[r].cars[c].isPolluting()){
-					var pollutionCloud = this.roads[r].cars[c].pollute(this.id);
-					this.clouds.push(pollutionCloud);
+					this.roads[r].cars[c].pollute({
+						'cloudID': this.id,
+						'verticalRoad': this.roads[r].vertical,
+						'roadOffset': this.roads[r].offset
+					});
 				}
 			}
 		}
@@ -47,7 +50,6 @@ Board.prototype.initialPollution = function(){
 }
 
 Board.prototype.update = function(){
-	document.getElementById('cloudList').innerHTML = "";
 	this.pollute();
 	for(var r = 0; r < this.roads.length; r++){
 		this.roads[r].update(this.size, this.roadSize);
@@ -136,4 +138,18 @@ Board.prototype.getAllCars = function(){
 		}
 	}
 	return allCars;
+}
+
+Board.prototype.getCarById = function(carID){
+	var response = null;
+	var carsArray = this.getAllCars();
+	for(var c = 0; c < carsArray.length; c++){
+		if(carsArray[c].id == carID){
+			response = carsArray[c];
+			break;
+		}
+	}
+	if(response != null){
+		return response;
+	}
 }

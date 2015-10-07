@@ -23,17 +23,25 @@ function Car(name){
 
 Car.prototype.isPolluting = function(){
 	var polluting = false;
-	if(Math.random() > 0.5){
+	if(Math.random() > 0.5 && this.position < this.boardSize){
 		polluting = true;
 	}
 	return polluting;
 }
 
-Car.prototype.pollute = function(cloudID){
+Car.prototype.pollute = function(data){
 	var xCar = 0;
 	var yCar = 0;
-	var pollutionCloud = new Cloud(xCar, yCar, cloudID);
-	return pollutionCloud;
+	if(data.verticalRoad){
+		yCar = this.position;
+		xCar = data.roadOffset;
+	}
+	else{
+		xCar = this.position;
+		yCar = data.roadOffset;
+	}
+	var text = this.id;
+	board.clouds.push(new Cloud(0, yCar, data.cloudID, text));
 }
 
 Car.prototype.update = function(boardSize, roadSize, increment){
@@ -61,6 +69,6 @@ Car.prototype.toHTML = function(){
 	html += '<div id="' + this.id + '" class="car" style="margin-left:';
 	html += this.position + 'px;background-image:';
 	html += 'url(style/cars/path' + (2192 + this.appearance) * 2 + '.png);">';
-	html += '</div>';
+	html += this.id + '</div>';
 	return html;
 }
