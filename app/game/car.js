@@ -35,7 +35,7 @@ Car.prototype.pollute = function(data){
 	var text = this.id;
 	if(data.verticalRoad){
 		xCar = (data.roadOffset * 0.825) + (this.boardSize * 1.575);
-		yCar = 0//this.boardSize - this.position;
+		yCar = this.boardSize + this.position;
 	}
 	else{
 		xCar = this.position;
