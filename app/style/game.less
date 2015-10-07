@@ -302,9 +302,9 @@ div.statsWindow{
 	overflow-y: scroll;
 	z-index: 50;
 
-	&:hover{
+	/*&:hover{
 		width: 30vh;
-	}
+	}*/
 
 	h2{
 		line-height: 4vh;
@@ -314,15 +314,17 @@ div.statsWindow{
 	div.windowLabel{
 		@labelWidth: 100vh / 3;
 		position: fixed;
-		top: 0;
+		top: @labelWidth / 4;
 		left: -5vw;
 		display: block;
 		width: @labelWidth;
 		height: 10vw;
 		line-height: 10vw;
-		background: orange;
-		opacity: 0.75;
+		background: @darkTone;
+		font-family: @BubblegumSans;
 		text-align: center;
+		border-top-left-radius: 5vw;
+		border-top-right-radius: 5vw;
 		transform: rotate(90deg);
 		-webkit-transform: rotate(90deg);
 	}
