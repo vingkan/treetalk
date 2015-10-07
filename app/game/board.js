@@ -18,7 +18,7 @@ function Board(id){
 	this.roads = [];
 	this.trees = [];
 	this.clouds = [];
-	this.cloudTreshold = 10;
+	this.cloudTreshold = 100;
 }
 
 Board.prototype.pollute = function(){
@@ -39,7 +39,11 @@ Board.prototype.pollute = function(){
 }
 
 Board.prototype.initialPollution = function(){
-	
+	for(var p = 0; p < this.cloudTreshold; p++){
+		var xRand = this.size * ((Math.random() * 0.75) + (0.10));
+		var yRand = this.size * ((Math.random() * 0.75) + (0.10));
+		new Cloud(xRand, yRand, this.id, ' ');
+	}
 }
 
 Board.prototype.update = function(){
