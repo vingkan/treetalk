@@ -311,11 +311,20 @@ div.statsWindow{
 		font-size: 4vh;
 	}
 
-//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>TO-DO
-
-	span.windowLabel{
-		position: absolute;
-		display: none;
+	div.windowLabel{
+		@labelWidth: 100vh / 3;
+		position: fixed;
+		top: 0;
+		left: -5vw;
+		display: block;
+		width: @labelWidth;
+		height: 10vw;
+		line-height: 10vw;
+		background: orange;
+		opacity: 0.75;
+		text-align: center;
+		transform: rotate(90deg);
+		-webkit-transform: rotate(90deg);
 	}
 
 	button{
