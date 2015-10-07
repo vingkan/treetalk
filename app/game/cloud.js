@@ -10,12 +10,14 @@ Cloud.prototype.id = ""; //String
 Cloud.prototype.xCoord = 0; //Double
 Cloud.prototype.yCoord = 0; //Double
 Cloud.prototype.text = 'ins'; //String
+Cloud.prototype.boardSize = 100; //Double
 
 function Cloud(x, y, boardID, text){
 	this.id = newCloudID();
 	this.xCoord = x || 0;
 	this.yCoord = y || 0;
 	this.text = text || 'null';
+	this.boardSize = board.size;
 	console.log('new cloud: ' + this.id + " at (" + this.xCoord + ", " + this.yCoord + "):");
 	if(printed){
 		document.getElementById(boardID + '-clouds').innerHTML += this.toHTML();
@@ -30,9 +32,14 @@ function Cloud(x, y, boardID, text){
 	}
 }*/
 
-Cloud.prototype.update = function(roadSize, boardSize){
+Cloud.prototype.update = function(roadSize, newBoardSize){
 	var exists = true;
+	var oldBoardSize = this.boardSize;
 	if(printed){
+		var xNew = (this.xCoord / oldBoardSize) * newBoardSize;
+		var yNew = (this.yCoord / oldBoardSize) * newBoardSize;
+		this.xCoord = xNew;
+		this.yCoord = yNew;
 		/*var magnitude = roadSize * 2;
 		var xRand = Math.random() * magnitude - (magnitude / 2);
 		var yRand = Math.random() * magnitude - (magnitude / 2);
@@ -49,14 +56,15 @@ Cloud.prototype.update = function(roadSize, boardSize){
 			this.yCoord -= yRand;
 		}*/
 		if(document.getElementById(this.id)){
-			//document.getElementById(this.id).style.marginLeft = this.xCoord + 'px';
-			//document.getElementById(this.id).style.marginTop = this.yCoord + 'px';
+			document.getElementById(this.id).style.marginLeft = this.xCoord + 'px';
+			document.getElementById(this.id).style.marginTop = this.yCoord + 'px';
 		}
 		else{
 			exists = false;
 			console.log('cloud.update() ' + this.id + " DNE")
 		}
 	}
+	this.boardSize = newBoardSize;
 	return exists;
 }
 
