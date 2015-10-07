@@ -20,7 +20,7 @@ function Cloud(x, y, boardID, text){
 	this.text = text || 'null';
 	this.boardSize = board.size;
 	this.deviance = 0;
-	console.log('new cloud: ' + this.id + " at (" + this.xCoord + ", " + this.yCoord + "):");
+	//console.log('new cloud: ' + this.id + " at (" + this.xCoord + ", " + this.yCoord + "):");
 	if(printed){
 		document.getElementById(boardID + '-clouds').innerHTML += this.toHTML();
 		board.clouds.push(this);
@@ -49,21 +49,6 @@ Cloud.prototype.update = function(roadSize, newBoardSize){
 		}
 		this.xCoord = xNew + xRand;
 		this.yCoord = yNew + yRand;
-		/*var magnitude = roadSize * 2;
-		var xRand = Math.random() * magnitude - (magnitude / 2);
-		var yRand = Math.random() * magnitude - (magnitude / 2);
-		var xLo = this.xCoord > (boardSize * 0.1);
-		var xHi = this.xCoord < ((boardSize * 0.9) - roadSize);
-		var yLo = this.yCoord > (boardSize * 0.1);
-		var yHi = this.yCoord < ((boardSize * 0.9) - roadSize);
-		if(xHi && yHi){
-			this.xCoord += xRand;
-			this.yCoord += yRand;
-		}
-		else if(xLo && yLo){
-			this.xCoord -= xRand;
-			this.yCoord -= yRand;
-		}*/
 		if(document.getElementById(this.id)){
 			document.getElementById(this.id).style.marginLeft = this.xCoord + 'px';
 			document.getElementById(this.id).style.marginTop = this.yCoord + 'px';
