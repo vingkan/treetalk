@@ -24,7 +24,9 @@
 		<div id="game1" class="gameContainer"></div>
 
 		<div id="menuBubble">
+			<span>&#8801;</span>
 			<ul id="menuBarList">
+				<li onclick="instructionsSequence();">Instructions</li>
 				<li onclick="toggleMenu('scoreWindow');">Game Scores</li>
 				<li onclick="toggleMenu('treesWindow');">Nearby Trees</li>
 			</ul>
@@ -112,9 +114,6 @@
 			setInterval(function(){
 				board.update()
 			}, 1000);
-
-			instructionsSequence();
-
 
 			function addNearbyTreesToWindow(){
 				function listNearbyTrees(){
