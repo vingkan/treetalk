@@ -12,6 +12,7 @@ Car.prototype.boardSize = 100; //Double
 Car.prototype.position = 0 //Double as percentage of boardSize
 Car.prototype.appearanceOptions = 36; //Body Type as Integer
 Car.prototype.appearance = 1; //Body Type as Integer
+Car.prototype.starts = 0; //Boolean
 
 function Car(name){
 	this.id = newCarID();
@@ -19,13 +20,19 @@ function Car(name){
 	this.boardSize = 100;
 	this.position = Math.random() * this.boardSize * 2;
 	this.appearance = Math.round((Math.random() * (this.appearanceOptions - 1)) + 1);
+	this.starts = 0;
 }
 
 Car.prototype.isPolluting = function(){
-	var polluting = true;
-	if(Math.random() > 0.5 && this.position < this.boardSize){
+	var polluting = false;
+	var started = this.starts > 1;
+	var random = Math.random() > 0.5;
+	var minLimit = this.position > (this.boardSize * 0.10);
+	var maxLimit = this.position < (this.boardSize * 0.95);
+	if(started && random && minLimit && maxLimit){
 		polluting = true;
 	}
+	this.starts++;
 	return polluting;
 }
 
@@ -34,14 +41,16 @@ Car.prototype.pollute = function(data){
 	var yCar = 0;
 	var text = this.id;
 	if(data.verticalRoad){
-		xCar = (data.roadOffset * 0.825) + (this.boardSize * 1.575);
-		yCar = this.boardSize + this.position;
+		xCar = (data.roadOffset * 1.000) + (this.boardSize * 0.475);
+		yCar = this.boardSize - this.position;
+		text += ' ';
 	}
 	else{
-		xCar = this.position;
-		yCar = data.roadOffset * 0.825;
+		xCar = this.position - (this.boardSize * 0.075);
+		yCar = data.roadOffset * 1;
 		text += '-x';
 	}
+	text = ' ';
 	new Cloud(xCar, yCar, data.cloudID, text)
 	//board.clouds.push();
 }
@@ -71,6 +80,6 @@ Car.prototype.toHTML = function(){
 	html += '<div id="' + this.id + '" class="car" style="margin-left:';
 	html += this.position + 'px;background-image:';
 	html += 'url(style/cars/path' + (2192 + this.appearance) * 2 + '.png);">';
-	html += this.id + '</div>';
+	html += '</div>';
 	return html;
 }

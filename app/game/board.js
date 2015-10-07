@@ -18,7 +18,7 @@ function Board(id){
 	this.roads = [];
 	this.trees = [];
 	this.clouds = [];
-	this.cloudTreshold = 8;
+	this.cloudTreshold = 50;
 	this.initialPollution();
 }
 
