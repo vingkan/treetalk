@@ -18,7 +18,7 @@ function Board(id){
 	this.roads = [];
 	this.trees = [];
 	this.clouds = [];
-	this.cloudTreshold = 50;
+	this.cloudTreshold = 5;
 	this.initialPollution();
 }
 
@@ -27,11 +27,8 @@ Board.prototype.pollute = function(){
 		for(var r = 0; r < this.roads.length; r++){
 			for(var c = 0; c < this.roads[r].cars.length; c++){
 				if(this.roads[r].cars[c].isPolluting()){
-					var xOffSet = this.roadSize;
-					var yOffSet = this.roadSize + (-1 * ((this.size - this.roadSize) / 2));
-					var xRandom = Math.random() * ((this.size) + (yOffSet / 4));
-					var yRandom = Math.random() * ((this.size - this.roadSize));
-					this.clouds.push(new Cloud(xRandom, yRandom, this.id));
+					var pollutionCloud = this.roads[r].cars[c].pollute(this.id);
+					this.clouds.push(pollutionCloud);
 				}
 			}
 		}
@@ -40,11 +37,12 @@ Board.prototype.pollute = function(){
 
 Board.prototype.initialPollution = function(){
 	for(var p = 0; p < this.cloudTreshold; p++){
-		var xOffSet = this.roadSize;
+		/*var xOffSet = this.roadSize;
 		var yOffSet = this.roadSize + (-1 * ((this.size - this.roadSize) / 2));
 		var xRandom = Math.random() * ((this.size) + (yOffSet / 4));
 		var yRandom = Math.random() * ((this.size - this.roadSize));
-		this.clouds.push(new Cloud(xRandom, yRandom, this.id));
+		//this.clouds.push(new Cloud(xRandom, yRandom, this.id));
+		this.clouds.push(new Cloud(0, 0, this.id));*/
 	}
 }
 

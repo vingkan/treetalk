@@ -29,6 +29,13 @@ Car.prototype.isPolluting = function(){
 	return polluting;
 }
 
+Car.prototype.pollute = function(cloudID){
+	var xCar = 0;
+	var yCar = 0;
+	var pollutionCloud = new Cloud(xCar, yCar, cloudID);
+	return pollutionCloud;
+}
+
 Car.prototype.update = function(boardSize, roadSize, increment){
 	//console.log("updated car: " + this.name);
 	this.boardSize = boardSize;
