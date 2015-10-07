@@ -11,6 +11,7 @@ Cloud.prototype.xCoord = 0; //Double
 Cloud.prototype.yCoord = 0; //Double
 Cloud.prototype.text = 'ins'; //String
 Cloud.prototype.boardSize = 100; //Double
+Cloud.prototype.deviance = 0; //Double
 
 function Cloud(x, y, boardID, text){
 	this.id = newCloudID();
@@ -18,6 +19,7 @@ function Cloud(x, y, boardID, text){
 	this.yCoord = y || 0;
 	this.text = text || 'null';
 	this.boardSize = board.size;
+	this.deviance = 0;
 	console.log('new cloud: ' + this.id + " at (" + this.xCoord + ", " + this.yCoord + "):");
 	if(printed){
 		document.getElementById(boardID + '-clouds').innerHTML += this.toHTML();
@@ -38,8 +40,15 @@ Cloud.prototype.update = function(roadSize, newBoardSize){
 	if(printed){
 		var xNew = (this.xCoord / oldBoardSize) * newBoardSize;
 		var yNew = (this.yCoord / oldBoardSize) * newBoardSize;
-		this.xCoord = xNew + (Math.random() - 0.5) * (roadSize / 4);
-		this.yCoord = yNew + (Math.random() - 0.5) * (roadSize / 4);
+		var xRand = (Math.random() - 0.5) * (roadSize / 2);
+		var yRand = (Math.random() - 0.5) * (roadSize / 2);
+		this.deviance += (xRand + yRand);
+		if(Math.abs(this.deviance) > 0){
+			xRand = 0;
+			yRand = 0;
+		}
+		this.xCoord = xNew + xRand;
+		this.yCoord = yNew + yRand;
 		/*var magnitude = roadSize * 2;
 		var xRand = Math.random() * magnitude - (magnitude / 2);
 		var yRand = Math.random() * magnitude - (magnitude / 2);
