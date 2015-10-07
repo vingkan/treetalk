@@ -43,9 +43,9 @@ Cloud.prototype.update = function(roadSize, newBoardSize){
 		var xRand = (Math.random() - 0.5) * (roadSize / 2);
 		var yRand = (Math.random() - 0.5) * (roadSize / 2);
 		this.deviance += (xRand + yRand);
-		if(Math.abs(this.deviance) > roadSize){
-			xRand = -1 * xRand;
-			yRand = -1 * yRand;
+		if(Math.abs(this.deviance) > (roadSize / 2)){
+			xRand = 0 * xRand;
+			yRand = 0 * yRand;
 		}
 		this.xCoord = xNew + xRand;
 		this.yCoord = yNew + yRand;

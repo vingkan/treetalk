@@ -61,7 +61,6 @@ Board.prototype.update = function(){
 }
 
 Board.prototype.print = function(){
-	this.initialPollution();
 	var gameSpaceDiv = document.getElementById(this.id);
 	gameSpaceDiv.innerHTML = this.toHTML();
 	printed = true;
@@ -69,6 +68,7 @@ Board.prototype.print = function(){
 }
 
 Board.prototype.toHTML = function(){
+	console.log('----printing game board, clouds#: ' + this.clouds.length)
 	html = '';
 	html += '<div class="board">';
 	var xOffSet = this.roadSize;
