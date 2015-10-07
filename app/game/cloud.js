@@ -65,7 +65,7 @@ Cloud.prototype.toHTML = function(){
 	var html = '';
 	html += '<div id="' + this.id + '" class="cloud" style="';
 	html += 'margin-left:' + this.xCoord + 'px;margin-top:' + this.yCoord + 'px;">';
-	html += '</div>';
+	html += this.id + '</div>';
 	return html;
 }
 
