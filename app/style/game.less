@@ -295,38 +295,15 @@ div.statsWindow{
 	top: 0;
 	left: 0;
 	height: 100vh;
-	width: 0%;
+	width: 0vw;
 	background: @darkTone;
 	color: white;
-	//border-right: 5vw solid @lightTone;
 	overflow-y: scroll;
 	z-index: 50;
-
-	/*&:hover{
-		width: 30vh;
-	}*/
 
 	h2{
 		line-height: 4vh;
 		font-size: 4vh;
-	}
-
-	div.windowLabel{
-		@labelWidth: 100vh / 3;
-		position: fixed;
-		top: @labelWidth / 4;
-		left: -5vw;
-		display: block;
-		width: @labelWidth;
-		height: 10vw;
-		line-height: 10vw;
-		background: @darkTone;
-		font-family: @BubblegumSans;
-		text-align: center;
-		border-top-left-radius: 5vw;
-		border-top-right-radius: 5vw;
-		transform: rotate(90deg);
-		-webkit-transform: rotate(90deg);
 	}
 
 	button{

@@ -23,8 +23,14 @@
 		<!-- <h1>Play The Game</h1> -->
 		<div id="game1" class="gameContainer"></div>
 
+		<div id="menuBubble">
+			<ul id="menuBarList">
+				<li onclick="toggleMenu('scoreWindow');">Game Scores</li>
+				<li onclick="toggleMenu('treesWindow');">Nearby Trees</li>
+			</ul>
+		</div>
+
 		<div class="statsWindow" id="treesWindow">
-			<div class="windowLabel" onclick="toggleMenu('treesWindow');">Trees Menu</div>
 			<h2>Find Nearby Trees</h2>
 			<button onclick="addNearbyTreesToWindow();">Go!</button>
 			<ul id="nearbyTreesWindow">
@@ -34,7 +40,6 @@
 		</div>
 
 		<div class="statsWindow" id="scoreWindow">
-			<div class="windowLabel" onclick="toggleMenu('scoreWindow');">Game Menu</div>
 			<h2>Game Score</h2>
 			<ul id="cloudList"></ul>
 		</div>
