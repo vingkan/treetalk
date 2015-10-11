@@ -26,6 +26,7 @@ Board.prototype.getPollutionPercentage = function(){
 	for(var c = 0; c < this.clouds.length; c++){
 		console.log(document.getElementById(this.clouds[c].id))
 	}
+	console.log((0.05*100) + "%")
 }
 
 Board.prototype.pollute = function(){
