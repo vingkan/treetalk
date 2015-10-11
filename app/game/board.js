@@ -22,6 +22,7 @@ function Board(id){
 }
 
 Board.prototype.getPollutionPercentage = function(){
+	console.log(this.clouds.length);
 	for(var c = 0; c < this.clouds.length; c++){
 		console.log(document.getElementById(this.clouds[c].id))
 	}
