@@ -21,6 +21,12 @@ function Board(id){
 	this.cloudTreshold = 100;
 }
 
+Board.prototype.getPollutionPercentage = function(){
+	for(var c = 0; c < this.clouds.length; c++){
+		console.log(document.getElementById(this.clouds[c].id))
+	}
+}
+
 Board.prototype.pollute = function(){
 	if(printed && this.clouds.length < this.cloudTreshold){
 		for(var r = 0; r < this.roads.length; r++){
