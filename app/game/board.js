@@ -22,11 +22,16 @@ function Board(id){
 }
 
 Board.prototype.getPollutionPercentage = function(){
-	console.log(this.clouds.length);
+	var cleanClouds = 0;
 	for(var c = 0; c < this.clouds.length; c++){
-		console.log(document.getElementById(this.clouds[c].id))
+		var cloudDOM = document.getElementById(this.clouds[c].id);
+		if(cloudDOM.style.backgroundImage.length > 6){
+			cleanClouds++;
+		}
 	}
-	console.log((0.05*100) + "%")
+	var fraction = cleanClouds / this.clouds.length;
+	var percentOutput = (fraction * 100).toFixed(2) + "%";
+	alert(percentOutput);
 }
 
 Board.prototype.pollute = function(){
