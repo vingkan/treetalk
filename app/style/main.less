@@ -5,6 +5,7 @@
 @focusTone: #61B329;
 @lightTone: @focusTone + #222222;
 @darkTone: @focusTone - #222222;
+@charcoal: #1A1A1A;
 
 /*--------------------------------------------*/
 /*---> LAYOUT <-------------------------------*/
@@ -68,6 +69,24 @@ h2{
 
 p{
 	color: @darkTone;
+}
+
+h1.boxed{
+	margin: 0 auto;
+	width: 50%;
+	color: @charcoal;
+	background: rgba(255, 255, 255, 0.35);
+	border: 0.1em solid @charcoal;
+	border-radius: 1.75em;
+}
+
+p.home{
+	background: @charcoal;
+	color: white;
+	font-family: @Cabin;
+	font-size: 1.2em;
+	line-height: 1.5em;
+	text-align: center;
 }
 
 /*--------------------------------------------*/
