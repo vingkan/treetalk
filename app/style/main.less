@@ -71,22 +71,62 @@ p{
 	color: @darkTone;
 }
 
-h1.boxed{
-	margin: 0 auto;
-	width: 50%;
-	color: @charcoal;
-	background: rgba(255, 255, 255, 0.35);
-	border: 0.1em solid @charcoal;
-	border-radius: 1.75em;
-}
+body#home{
 
-p.home{
-	background: @charcoal;
-	color: white;
-	font-family: @Cabin;
-	font-size: 1.2em;
-	line-height: 1.5em;
-	text-align: center;
+	div.landing{
+		background: @focusTone;
+		padding: 0.25em 0;
+	}
+
+	p{
+		color: white;
+		font-family: @Cabin;
+		font-size: 1.2em;
+		line-height: 1.5em;
+		text-align: center;
+	}
+
+	div.logoBlock{
+
+		width: 90%;
+		padding: 0 5%;
+		margin: 0 auto;
+		background: white;
+
+		div.logoBox, div.preview{
+			display: inline-block;
+			height: 10em;
+			margin: 0;
+			padding: 0;
+			vertical-align: top;
+		}
+
+		div.logoBox{
+
+			background: red;
+			width: 30%;
+
+			img{
+				@size: 100%;
+				margin: 5% 0;
+				height: 90%;
+				background: orange;
+				margin: 0;
+			}
+
+		}
+
+		div.preview{
+			width: 69%;
+			background: purple;
+
+			p{
+				margin: 0;
+			}
+		}
+
+	}
+
 }
 
 /*--------------------------------------------*/
