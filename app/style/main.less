@@ -89,13 +89,13 @@ body#home{
 	div.logoBlock{
 
 		width: 90%;
-		padding: 0 5%;
+		padding: 2em 5%;
 		margin: 0 auto;
 		background: white;
 
 		div.logoBox, div.preview{
 			display: inline-block;
-			height: 10em;
+			height: auto;
 			margin: 0;
 			padding: 0;
 			vertical-align: top;
@@ -103,25 +103,31 @@ body#home{
 
 		div.logoBox{
 
-			background: red;
-			width: 30%;
+			background: transparent;
+			width: 40%;
 
 			img{
-				@size: 100%;
-				margin: 5% 0;
-				height: 90%;
-				background: orange;
+				width: auto;
+				height: 30%;
+				background: transparent;
 				margin: 0;
 			}
 
 		}
 
 		div.preview{
-			width: 69%;
-			background: purple;
+			margin: auto 0;
+			width: 59%;
+			height: 30%;
+			line-height: 100%;
+			background: transparent;
 
 			p{
-				margin: 0;
+				width: 100%;
+				display: inline-block;
+				vertical-align: middle;
+				line-height: normal;
+				color: @charcoal;
 			}
 		}
 
