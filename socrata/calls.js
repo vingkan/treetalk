@@ -1,5 +1,3 @@
-console.log("Hello World");
-
 //https://data.illinois.gov/Municipality/Trees-Owned-by-the-City-of-Champaign/dzge-uybj
 
 var appToken = "Le00VXF0GK0d8D1tTn2v6Vkpl";
